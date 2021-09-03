@@ -1,6 +1,6 @@
 import { 
-  BrowserRouter as Router, 
-  Switch,
+  HashRouter as Router, 
+  Switch, Link,
   Route } from 'react-router-dom';
 
 //Pages
@@ -11,21 +11,38 @@ import Placempus from './pages/Projects/Placempus';
 import Blog from './pages/Blog';
 
 const App = () => {
+
+
   return (
-    <Router>
+    <div>
+    <Router basename='/portfolio/'>
+    <nav>
+         <ul id="navigation">
+             <li>
+                 <Link to="/">Home</Link>
+             </li>
+             <li>
+                 <Link to="/placempus">Placempus</Link>
+             </li>
+             <li>
+                 <Link to="/boddyssey">Boddyssey</Link>
+             </li>
+         </ul>
+     </nav>
       <Switch>
         {/* START PAGE */}
         <Route exact path='/' component={Home} />
 
         {/* PROJECTS */}
-        <Route exact path='/placempus' component={Placempus} />
-        <Route exact path='/spark-of-genius' component={SparkOfGenius} />
-        <Route exact path='/boddyssey' component={Boddyssey} />
+        <Route path='/placempus' component={Placempus} />
+        <Route path='/spark-of-genius' component={SparkOfGenius} />
+        <Route path='/boddyssey' component={Boddyssey} />
 
         {/* BLOG */}
         <Route exact path='/blog' component={Blog} />
       </Switch>
     </Router>
+    </div>
   );
 }
 
