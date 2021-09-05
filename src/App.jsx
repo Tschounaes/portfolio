@@ -1,6 +1,6 @@
 import { 
   HashRouter as Router, 
-  Switch, Link,
+  Switch,
   Route } from 'react-router-dom';
 
 //Pages
@@ -10,25 +10,23 @@ import Boddyssey from './pages/Projects/Boddyssey';
 import Placempus from './pages/Projects/Placempus';
 import Blog from './pages/Blog';
 
+//Components
+import Navigation from './components/Navigation';
+import Social from './components/Social';
+import AboutMeOverlay from './components/AboutMeOverlay';
+
 const App = () => {
 
 
   return (
     <div>
-    <Router basename='/portfolio/'>
-    <nav>
-         <ul id="navigation">
-             <li>
-                 <Link to="/">Home</Link>
-             </li>
-             <li>
-                 <Link to="/placempus">Placempus</Link>
-             </li>
-             <li>
-                 <Link to="/boddyssey">Boddyssey</Link>
-             </li>
-         </ul>
-     </nav>
+    <Router>
+      <Navigation /> 
+      <Social />
+      <AboutMeOverlay />
+
+
+
       <Switch>
         {/* START PAGE */}
         <Route exact path='/' component={Home} />

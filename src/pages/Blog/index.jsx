@@ -1,11 +1,10 @@
 import React from 'react';
+import DevMessage from '../../components/DevMessage';
 
 const Blog = () => {
     return (
-        <div>
-            <h1>TSCHOUNAES - Blog</h1>
-            <p>Website in Production</p>     
-        </div>
+        <DevMessage 
+        title={'Blog'}/>
     )
 }
 

@@ -1,10 +1,12 @@
 import React from 'react';
+import DevMessage from '../../components/DevMessage';
+
 
 const Home = () => {
     return (
-        <div>
-            <h1>TSCHOUNAES - Home</h1>
-            <p>Website in Production</p>   
+        <div >
+            <DevMessage 
+            title={'Home'}/>
         </div>
     )
 }
