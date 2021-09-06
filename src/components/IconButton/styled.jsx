@@ -9,7 +9,7 @@ export const IconButtonWrapper = styled.button`
     width: auto;
 
     background-color: ${props => props.select ? props.theme.InternationalOrangeGoldenGateBridge : props.theme.Skobeloff};
-    z-index: ${props => props.select ? 1 : 0};
+    z-index: ${props => props.select ? 2 : 0};
     border-radius: 1.2em;
 
     cursor: pointer;
