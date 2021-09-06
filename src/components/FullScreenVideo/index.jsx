@@ -1,6 +1,7 @@
-import React, { useState, useEffect, useRef} from 'react';
+import React, { useState, useEffect } from 'react';
 import { FullScreenVideoWrapper } from './styled';
-import Iframe from 'react-iframe';
+import Showreel from '../../assets/video/showreel2021.mp4'
+
 
 
 const FullScreenVideo = () => {
@@ -30,7 +31,7 @@ const FullScreenVideo = () => {
         <FullScreenVideoWrapper>
             <video 
                 height={dimensions[1]}
-                src={url} 
+                src={Showreel} 
                 autoPlay
                 loop
                 muted
