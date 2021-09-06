@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.js": "/portfolio/static/js/main.fe57f859.chunk.js",
-    "main.js.map": "/portfolio/static/js/main.fe57f859.chunk.js.map",
+    "main.js": "/portfolio/static/js/main.cb6fa851.chunk.js",
+    "main.js.map": "/portfolio/static/js/main.cb6fa851.chunk.js.map",
     "runtime-main.js": "/portfolio/static/js/runtime-main.7ebf164f.js",
     "runtime-main.js.map": "/portfolio/static/js/runtime-main.7ebf164f.js.map",
-    "static/js/2.5ce274d0.chunk.js": "/portfolio/static/js/2.5ce274d0.chunk.js",
-    "static/js/2.5ce274d0.chunk.js.map": "/portfolio/static/js/2.5ce274d0.chunk.js.map",
+    "static/js/2.a4528880.chunk.js": "/portfolio/static/js/2.a4528880.chunk.js",
+    "static/js/2.a4528880.chunk.js.map": "/portfolio/static/js/2.a4528880.chunk.js.map",
     "index.html": "/portfolio/index.html",
-    "static/js/2.5ce274d0.chunk.js.LICENSE.txt": "/portfolio/static/js/2.5ce274d0.chunk.js.LICENSE.txt",
+    "static/js/2.a4528880.chunk.js.LICENSE.txt": "/portfolio/static/js/2.a4528880.chunk.js.LICENSE.txt",
     "static/media/blog_icon.ab0d4447.svg": "/portfolio/static/media/blog_icon.ab0d4447.svg",
     "static/media/boddyssey_icon.59bc3f28.svg": "/portfolio/static/media/boddyssey_icon.59bc3f28.svg",
     "static/media/cross_icon.1205cf8b.svg": "/portfolio/static/media/cross_icon.1205cf8b.svg",
@@ -21,7 +21,7 @@
   },
   "entrypoints": [
     "static/js/runtime-main.7ebf164f.js",
-    "static/js/2.5ce274d0.chunk.js",
-    "static/js/main.fe57f859.chunk.js"
+    "static/js/2.a4528880.chunk.js",
+    "static/js/main.cb6fa851.chunk.js"
   ]
 }
