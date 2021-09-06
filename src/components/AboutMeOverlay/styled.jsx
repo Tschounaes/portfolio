@@ -11,7 +11,7 @@ export const AboutMeOverlayWrapper = styled.div`
     border-radius: ${props => !props.open ? '75px' : '0px'};
     padding: 15px;
     cursor: ${props => !props.open ? 'pointer' : 'default'} ;
-
+    z-index: 1;
     transition: ${props => !props.open ? 'all 0.4s 0.2s' : 'all 1.2s'} ;
 
     .about-me-content {
@@ -65,8 +65,6 @@ export const AboutMeOverlayWrapper = styled.div`
         }
     }
 
-
-
     p { 
         height: 0px;
         width: 100%;
@@ -100,5 +98,4 @@ export const AboutMeOverlayWrapper = styled.div`
             opacity: ${props => !props.open ? '1' : '0'};
         }
     }
-
 `

@@ -10,6 +10,7 @@ export const NavContainer = styled.div`
     max-height: 400px;
     height: 28vh;
     justify-content: flex-end;
+    z-index: 1;
 
 
     nav {
