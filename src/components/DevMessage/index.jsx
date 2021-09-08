@@ -54,7 +54,7 @@ const DevMessage = (props) => {
                     <h1>{ window.location.href }</h1> 
                 </>
                 }
-                <p>{ props.message ? props.message : 'This part of the website is in developpement. Thank you for visiting my portfolio!' }</p>
+                <p>{ props.message ? props.message : 'This part of the website is in development. Thank you for visiting my portfolio website!' }</p>
                 
             </article>
         </DevMessageWrapper>

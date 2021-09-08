@@ -1,0 +1,12 @@
+id,type,from,until,name,place,description,image,link
+0,studies,09/01/17,07/16/20,Animation Studies,"Hochschule Luzern Design+Kunst, Luzern CH",Bachelor,,
+1,studies,08/01/16,05/22/17,Art and design students pre-course,"F+F Schule für Kunst und Design, Zurich CH",,,
+2,studies,09/01/14,12/20/15,German Studies and Film Sciences,"UZH University of Zurich, Zurich CH",,,
+3,studies,08/01/09,07/22/14,High school Matura,"Kantonsschule im Lee, Winterthur CH",,,
+4,job,09/01/18,01/31/19,Comissioned Work: Spark of Genius,"Cartoon Network Germany, Munich D",,,
+5,job,01/01/15,12/31/17,Organizer film-camp for children „Filmbrugg“,"Jugendarbeit St. Urban, Winterthur CH",,,
+6,job,02/01/17,05/31/16,Internship Median Design (100%),"Ergoneers GmbH, Geretsried D (100%)",,,
+7,job,09/01/20,03/31/21,Master Project: Limits – Simon De Diesbach (20%),"Hochschule Luzern Design+Kunst, Luzern CH","Technical advisor, pipeline and rendering with SideFX Houdini",,
+8,studies,05/03/21,07/23/21,Bootcamp: Full-Stack Developer,"Propulsion Academy, Zürich CH","JavaScript, Python, React, Django Rest-Framework, Docker",,
+9,studies,04/08/19,06/28/19,Professional training course: Houdini & Simulation for Film and Games,"The Animation Workshop, VIA University College, Viborg DK","Houdini, TouchDesigner, Unity, VEX, Python, C#",,
+10,job,08/08/20,02/20/21,"Independent filmmaker: Boddyssey, short film",Elgg CH,,,

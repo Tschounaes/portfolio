@@ -14,19 +14,12 @@ export const AboutMeOverlayWrapper = styled.div`
     z-index: 1;
     transition: ${props => !props.open ? 'all 0.4s 0.2s' : 'all 1.2s'} ;
 
-    .about-me-content {
-        height: ${props => !props.open ? '0vh' : '100vh'};
-        width: ${props => !props.open ? '0vh' : '62vw'};
-        min-width: ${props => !props.open ? '0vh' : '400px'};
-        transition: all 1.2s;
-    }
-
     .close-button {
         height: 30px;
         aspect-ratio: 1 / 1;
         background-color: ${props => !props.open ? props.theme.Transparent : props.theme.OuterSpaceCrayola};
         position: absolute;
-        right: 2em;
+        right: 3em;
         top: 2em;
         border-radius: 50%;
         display: flex;
@@ -36,7 +29,7 @@ export const AboutMeOverlayWrapper = styled.div`
         opacity: 0;
         animation-name: delay-appear;
         animation-duration: 1s;
-        animation-delay: 1.4s;
+        animation-delay: 1.6s;
         animation-fill-mode: forwards;
 
         :hover {
@@ -65,7 +58,7 @@ export const AboutMeOverlayWrapper = styled.div`
         }
     }
 
-    p { 
+    #about-me-title { 
         height: 0px;
         width: 100%;
         margin-top: 6px;
@@ -91,8 +84,8 @@ export const AboutMeOverlayWrapper = styled.div`
             fill: ${props => props.theme.ChampagnePink};
         }
 
-        p {
-            height: 12px;
+        #about-me-title {
+            height: ${props => !props.open ? '12px' : '0px'};
             margin-top: 6px;
             margin-bottom: 6px;
             opacity: ${props => !props.open ? '1' : '0'};

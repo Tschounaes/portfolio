@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const SocialContainer = styled.div`
+    z-index: 1;
     position: absolute;
     right: 3em;
     bottom: 2em;

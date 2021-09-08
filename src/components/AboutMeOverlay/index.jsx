@@ -3,6 +3,9 @@ import { ReactComponent as TschounaesLogo } from '../../assets/svg/tschounaes_ic
 import { AboutMeOverlayWrapper } from './styled';
 import CrossIcon from '../../assets/svg/cross_icon.svg';
 
+import CV from '../CV';
+
+
 
 const AboutMeOverlay = () => {
     const [ open, setOpen ] = useState(false);
@@ -26,14 +29,11 @@ const AboutMeOverlay = () => {
     return (
         <AboutMeOverlayWrapper onClick={openHandler} open={open} crossIcon={CrossIcon}>
             <TschounaesLogo />
-            <p>aboute me</p>
-            <div className='about-me-content'>
-            </div>
+            <p id='about-me-title'>aboute me</p>
+                <CV open={open}/>
             { open &&
                 <div className='close-button' onClick={closeHandler}>
-                    <div className='cross-container'>
-
-                    </div>
+                    <div className='cross-container'></div>
                 </div> 
             }
 

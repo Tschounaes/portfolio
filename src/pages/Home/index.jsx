@@ -5,7 +5,7 @@ import FullScreenVideo from '../../components/FullScreenVideo';
 
 const Home = () => {
     return (
-        <>
+    <>
         <FullScreenVideo />
     
     {

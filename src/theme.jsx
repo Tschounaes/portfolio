@@ -20,6 +20,10 @@ export const DefaultTheme = {
 }
 
 export const GlobalStyle = createGlobalStyle`
+    #root {
+        overflow: hidden;
+    }
+    
     body {
         margin: 0px;
         padding: 0px;
@@ -36,7 +40,7 @@ export const GlobalStyle = createGlobalStyle`
         }
         h1 {
             font-size: ${props => props.theme.XL};
-            font-family: OpenSans, sans-serif;
+            font-family: Roboto, sans-serif;
             font-weight: 700;
             margin: 0.5em 0em 0.5em 0em;
 
