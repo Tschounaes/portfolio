@@ -8,7 +8,7 @@ import CV from '../CV';
 
 
 const AboutMeOverlay = () => {
-    const [ open, setOpen ] = useState(true);
+    const [ open, setOpen ] = useState(window.innerWidth > 1000);
 
     const openHandler = () => {
         if (!open) {
