@@ -8,7 +8,7 @@ import CV from '../CV';
 
 
 const AboutMeOverlay = () => {
-    const [ open, setOpen ] = useState(false);
+    const [ open, setOpen ] = useState(true);
 
     const openHandler = () => {
         if (!open) {
@@ -28,7 +28,7 @@ const AboutMeOverlay = () => {
 
     return (
         <AboutMeOverlayWrapper onClick={openHandler} open={open} crossIcon={CrossIcon}>
-            <TschounaesLogo />
+            <TschounaesLogo alt='tschounaes_logo'/>
             <p id='about-me-title'>aboute me</p>
                 <CV open={open}/>
             { open &&

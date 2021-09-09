@@ -42,7 +42,7 @@ export const AboutMeOverlayWrapper = styled.div`
             width: 60%;
             height: 60%;
             background-color: ${props => !props.open ? props.theme.Transparent : props.theme.ChampagnePink};
-            mask-image: url(${props => props.crossIcon});
+            -webkit-mask-box-image: url(${props => props.crossIcon});
             mask-repeat: no-repeat;
             mask-size: contain;
             mask-position: center;    
@@ -67,6 +67,10 @@ export const AboutMeOverlayWrapper = styled.div`
         text-align: center;
         text-transform: capitalize;
         opacity: 0;
+        user-select: none; /* Standard */
+        -webkit-user-select: none; /* Safari */        
+        -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* IE10+/Edge */
         transition: height 0.4s 0.2s, opacity 0.4s 0.2s, margin 0.4s 0.2s;
     }
  

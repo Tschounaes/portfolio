@@ -4,7 +4,8 @@ import PseudonymMask from '../../assets/svg/pseudo-mask.svg';
 
 
 
-export const CVWrapper = styled.article`
+export const CVWrapper = styled.div`
+    top: -100px;
     height: ${props => !props.open ? '0vh' : '100vh'};
     max-width: ${props => !props.open ? '0px' : '1000px'};
     width: ${props => !props.open ? '0vh' : '100%'};
@@ -14,7 +15,6 @@ export const CVWrapper = styled.article`
         'height 1.2s, width 1.2s, max-width 1.2s, opacity 0.4s 1.2s'};
     overflow-y: scroll;
 
-
     #introduction {
         display: flex;
         flex-direction: column;   
@@ -22,102 +22,105 @@ export const CVWrapper = styled.article`
         align-items: center;
 
         #hi-i-am {
+            z-index: 3;
+
             position: absolute;
             left: 17vw;
             top: 120px;
+
             font-size: ${props => props.smallScreen ? '45px' : '100px'};
             font-weight: bold;
-            opacity: ${props => props.scrollTop >= 5 ? 0 : 1
-                };
+
+            opacity: ${props => props.scrollTop >= 5 ? 0 : 1};
             transition: opacity 0.5s 0.1s;
         }
 
-        .pseudo-mask-container {
-            z-index: 2;
+        #pseudonym-container {
+            z-index: 3;
+
             position: absolute;
+            left: 1.5vw;
+            top: ${props => props.smallScreen ? '150px' : '200px'};
+
             width: ${props => !props.open ? '0vw' : props.scrollTop >= 8 ?  '0px' : '97vw'};
             max-width: 1400px;
             aspect-ratio: 1247 / 168;
-            left: 1.5vw;
-            top: ${props => props.smallScreen ? '150px' : '200px'};
-            mask-image: url(${PseudonymMask});
+            
+            -webkit-mask-box-image: url(${PseudonymMask});
             mask-position: center;
             mask-size: contain;
             mask-repeat: no-repeat;
             backdrop-filter: brightness(140%) contrast(300%);
-            transform: ${props => `
-                translate(${props.scrollTop >= 5 ? 100 : 0}vw)
-                `};   
-            transition: transform 2s, width 0s ${props => props.scrollTop >= 8 ? '2s' : '0s'};
-           
-        }
-
-
-
-        #pseudo {
-            visibility: visible;
-            padding-bottom: ${props => props.smallScreen ? '10%' : '20%'};
-            width: ${props => !props.open ? '0vh' : '100%'};
-            position: relative;
-            z-index: 5;
-            opacity: 0;
-        }
-        
-        h1 { 
-            text-align: center;
-            margin-bottom: 0.125em;
-              
-        }
-
-        h2 {
-            width: 100%;
+            
+            transform: ${props => `translate(${props.scrollTop >= 5 ? 100 : 0}vw)`};   
+            transition: transform 2s, width 0s ${props => props.scrollTop >= 8 ? '2s' : '0s'}; 
         }
 
         #profession {
-            z-index: 4;
+            z-index: 3;
+
             position: absolute;
             left: ${props => props.scrollTop >= 5 ? '100%' : '50%'};
             top: ${props => props.scrollTop >= 5 ? '50vh': props.bottomLine+'px'};
+
             font-size: ${props => props.smallScreen ? props.theme.L : props.theme.XL};
             white-space: nowrap;
-            margin-bottom: 2em;
+
             background-color: ${props => props.theme.InternationalOrangeGoldenGateBridge};
             padding: 1em;
             border-radius: 50px;
+
             transform: ${props => `
                 translateX(${props.smallScreen ?  -150 : -250}px)
-                translateX(${props.scrollTop >= 5 ? -30 : -0}px)
+                translateX(${props.scrollTop >= 5 ? props.smallScreen ? -20 : -27 : -0}px)
                 rotate(${props.scrollTop >= 5 ? 90 : 0}deg)
                 scale(${props.scrollTop >= 5 ? 60 : 100}%)
                 `};
             transition: transform 0.8s, left 1.5s, top 1.5s;
         }
 
-        
+        #invisible-text {
+            z-index: 5;
 
-        .welcomeContainer {
             position: relative;
-            z-index: 6;
+
+            padding-bottom: ${props => props.smallScreen ? '10%' : '20%'};
+            width: ${props => !props.open ? '0vh' : '100%'};
+            
+            opacity: 0;
+            user-select: none; /* Standard */
+            -webkit-user-select: none; /* Safari */        
+            -moz-user-select: none; /* Firefox */
+            -ms-user-select: none; /* IE10+/Edge */
+            
+        }
+        
+        .welcomeContainer {
+            z-index: 5;
+            position: relative;
+            width: 100%;
+            padding-top: ${ props => props.smallScreen ? '100px' : '200px' };
+   
             display: flex;
             flex-wrap: wrap;
-            width: 100%;
-            justify-content: center;
+            justify-content: ${props => props.smallScreen ? 'center' : 'space-between'};
             align-items: center;
-            padding-top: ${ props => props.smallScreen ? '100px' : '200px' };
+            
             
             img {
                 margin-top: ${ props => props.smallScreen ? '30px' : '0px' };
-                min-width: 290px;
+                min-width: 320px;
                 width: 36%;
                 mask-image: url(${Circle});
                 mask-size: contain;
                 mask-position: center;
                 mask-repeat: no-repeat;  
             }
+
             #welcome-text {
                 position: relative;
                 z-index: 3;
-                width: ${props => props.smallScreen ? '100%' : '58%'};
+                width: ${props => props.smallScreen ? '100%' : '64%'};
 
                 p {
                 padding-left: 40px;
@@ -126,38 +129,53 @@ export const CVWrapper = styled.article`
         }
     }
 
-    ul {
+    .cv-topic {
+        z-index: 5;
         position: relative;
-        z-index: 3;
-        display: grid;
-        grid-template-columns: 20% 80% ;
-        grid-template-rows: 1fr 1fr auto;
-        grid-template-areas: 'ts nm' 'ts pl' 'ts dc';
+        margin-right: 3em;
+
+        h2 {
+            margin-top: 30px;
+            text-transform: capitalize;
+        }
         
 
-        li {
-            width: 100%;
-            list-style: none;
+        ul {
+            display: grid;
+            grid-template-columns: 30% 70% ;
+            grid-template-rows: auto auto auto;
+            grid-template-areas: 'ts nm' 'ts pl' 'ts dc';
+            grid-column-gap: 15px;
+            margin-bottom: 1em;
+            
+
+            li {
+                width: 100%;
+                list-style: none;
+            }
+
+            .name {
+                grid-area: nm;
+                font-weight: bold;
+
+            }
+            .timespan {
+                grid-area: ts;
+
+                
+
+            }
+            .description {
+                margin-top: 0.25em;
+                grid-area: dc;
+                margin-left: 1em;
+
+            }
+            .place {
+                grid-area: pl;
+                font-size: ${props => props.theme.S};
+
+            }
         }
-
-        .name {
-            grid-area: nm;
-
-        }
-        .timespan {
-            grid-area: ts;
-
-        }
-        .description {
-            grid-area: dc;
-
-        }
-        .place {
-            grid-area: pl;
-
-        }
-
     }
- 
-   
 `

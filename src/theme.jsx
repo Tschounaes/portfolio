@@ -20,6 +20,34 @@ export const DefaultTheme = {
 }
 
 export const GlobalStyle = createGlobalStyle`
+    * {
+        -webkit-tap-highlight-color: transparent;
+        ::-webkit-scrollbar {
+            background-color: transparent;
+            width: 3px;
+            
+
+        }
+        ::-webkit-scrollbar-button {
+            visibility: hidden;
+        } 
+        ::-webkit-scrollbar-thumb {
+            background-color: transparent;
+        }
+        ::-webkit-scrollbar-track {
+
+        }
+        ::-webkit-scrollbar-track-piece {
+
+        }
+        ::-webkit-scrollbar-corner {
+
+        }
+        ::-webkit-resizer {
+
+        }
+    }
+
     #root {
         overflow: hidden;
     }

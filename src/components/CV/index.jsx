@@ -51,18 +51,23 @@ const CV = (props) => {
 
     const getWelcomeData = () => csv(WelcomeTabel).then( data => setWelcomeData(data[0]));
 
-    const getWidth = () => {
-        const width = image.current.getBoundingClientRect().width;
-        width <= 290.1 ? setSmallScreen(true) : setSmallScreen(false);
+    const getRefs = () => {
+        image.current.getBoundingClientRect().width <= 320.1 ? 
+        setSmallScreen(true) : 
+        setSmallScreen(false);
         setBottomLine(pseudo.current.getBoundingClientRect().bottom)
     }
 
-    
     useEffect(() => {
         getCVData();
         getWelcomeData();
-        window.addEventListener('resize', getWidth)
-        return () => window.removeEventListener('resize', getWidth);
+        let timeoutId = null;
+        const resizeListener = () => {
+            clearTimeout(timeoutId);
+            timeoutId = setTimeout(() => getRefs(), 150);
+        }
+        window.addEventListener('resize', resizeListener)
+        return () => window.removeEventListener('resize', resizeListener);
     },[])
 
 
@@ -72,16 +77,20 @@ const CV = (props) => {
         <CVWrapper 
             ref={container}
             onScroll={getScrollTop}
+            onTransitionEnd={getRefs}
+            /* attributes from refs */
+            open={props.open} 
             scrollTop={scrollTop}
             bottomLine={bottomLine}
-            open={props.open} 
             smallScreen={smallScreen} 
-            onTransitionEnd={getWidth}>
-            <section id='introduction'>
-                <div ref= { pseudo } className='pseudo-mask-container'></div>
-                <p id='hi-i-am'>Hi, I am</p>
-                <h1 id='pseudo'>{welcomeData.pseudonym}</h1>
+            >
+
+            <article id='introduction'>
+                <p id='hi-i-am'>Hi, I am</p>   
+                <div id='pseudonym-container' ref= { pseudo } ></div>
                 <h1 id='profession'>{welcomeData.profession}</h1>
+                <h1 id='invisible-text'>{welcomeData.pseudonym}</h1>
+                
                 <div className={'welcomeContainer'}>
                     <div id='welcome-text'>
                         <h2>{`${welcomeData.firstName} ${welcomeData.secondName} ${welcomeData.lastName}`}</h2>
@@ -89,11 +98,13 @@ const CV = (props) => {
                     </div>
                     <img ref={ image } src={welcomeData.image} alt='jonasbienz' />
                 </div>
-            </section>        
+            </article>        
             {
                 Array.from(types).map((type, index) => {
                     return(
-                        <section key={type + index} id={type}>
+                        <article 
+                            key={type + index} 
+                            className='cv-topic'>
                             <h2 >{type}</h2>
                             { CVData.map((entry) => {
                                 return (
@@ -109,10 +120,11 @@ const CV = (props) => {
                                     </div>
                                 )
                             })}
-                        </section>
+                        </article>
                     )
                 })
             } 
+
         </CVWrapper>
     )
 }

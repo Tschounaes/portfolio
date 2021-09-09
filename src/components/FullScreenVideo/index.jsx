@@ -1,36 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import useResize from '../../hooks/useResize';
+import fillDisplay from '../../helpers/fillDisplay';
 import { FullScreenVideoWrapper } from './styled';
-import Showreel from '../../assets/video/showreel2021.mp4'
-
-
+import Showreel from '../../assets/video/showreel2021.mp4';
 
 const FullScreenVideo = () => {
-    
-    const [dimensions, setDimensions] = useState([0,0])
+    const innerSize = useResize();
 
-    useEffect(() => {
-        const format = 1920/1080;
-        const adjustVideo = () => {
-            const screenAspect = window.innerWidth / window.innerHeight;
-            if (screenAspect > format) {
-                setDimensions([window.innerWidth, window.innerWidth/format])
-            } else {
-                setDimensions([window.innerHeight*format, window.innerHeight])
-            }
-        }
-
-        adjustVideo()
-        window.addEventListener('resize', adjustVideo);
-        return () => {
-            window.removeEventListener('resize', adjustVideo);
-        }
-    }, [])
     return (
         <FullScreenVideoWrapper>
             <video 
-                height={dimensions[1]}
-                src={Showreel} 
-                autoPlay
+                height={fillDisplay(innerSize, 1920/1080).height}
+                type='video/mp4'
+                src={Showreel}
+                autoPlay={true}
                 loop
                 muted
             />
