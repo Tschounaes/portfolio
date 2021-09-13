@@ -48,10 +48,12 @@ export const CVWrapper = styled.div`
             
             -webkit-mask-image: url(${PseudonymMask});
             mask-image: url(${PseudonymMask});
-            
-            mask-position: center;
-            mask-size: contain;
+            -webkit-mask-repeat: no-repeat;
             mask-repeat: no-repeat;
+            -webkit-mask-size: contain;
+            mask-size: contain;
+            -webkit-mask-position: center;
+            mask-position: center;
             backdrop-filter: brightness(140%) contrast(300%);
             
             transform: ${props => `translate(${props.scrollTop >= 5 ? 100 : 0}vw)`};   

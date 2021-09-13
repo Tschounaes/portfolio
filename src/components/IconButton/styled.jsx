@@ -37,9 +37,12 @@ export const IconButtonWrapper = styled.button`
         background-color: ${props => props.theme.ChampagnePink};
         -webkit-mask-image: url(${props => props.icon});
         mask-image: url(${props => props.icon});
+        -webkit-mask-repeat: no-repeat;
         mask-repeat: no-repeat;
+        -webkit-mask-size: contain;
         mask-size: contain;
-        mask-position: center;    
+        -webkit-mask-position: center;
+        mask-position: center;
     }
 
     :hover {
