@@ -1,4 +1,5 @@
-import React, { useState }from 'react';
+import React from 'react';
+import useZustand from '../../store_zustand';
 
 import { NavContainer } from './styled';
 
@@ -19,15 +20,15 @@ const navContent = [
 
 
 const Navigation = () => {
-    const [open, setOpen] = useState(false)
+    const { setNavOpen } = useZustand()
 
     const handleExpand = (e) => {
         switch (e.type) {
             case 'mouseenter':
-                setOpen(true)
+                setNavOpen(true)
                 break;
             case 'mouseleave':
-                setOpen(false)
+                setNavOpen(false)
                 break;
             default: 
                 return null;
@@ -46,7 +47,6 @@ const Navigation = () => {
                                 width={linkSet[3]}
                                 key={'nav-'+index} 
                                 navIndex={index}
-                                open={open}
                             />)
                     })
                 }

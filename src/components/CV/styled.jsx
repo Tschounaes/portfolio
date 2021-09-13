@@ -11,7 +11,7 @@ export const CVWrapper = styled.div`
     width: ${props => !props.open ? '0vh' : '100%'};
     opacity: ${props => !props.open ? '0' : '1'};
     transition: ${props => !props.open ? 
-        'height 1.2s 0.4s, width 1.2s 0.4s, max-width 1.2s 0.4s, opacity 0.4s' : 
+        'height 1.2s 0.4s, width 1.2s 0.4s, max-width 1.2s 0.4s, opacity 0s' : 
         'height 1.2s, width 1.2s, max-width 1.2s, opacity 0.4s 1.2s'};
     overflow-y: scroll;
 
@@ -24,7 +24,7 @@ export const CVWrapper = styled.div`
         #hi-i-am {
             z-index: 3;
 
-            position: absolute;
+            position: ${props => !props.open ? 'static' : 'absolute'};
             left: 17vw;
             top: 120px;
 
@@ -42,11 +42,12 @@ export const CVWrapper = styled.div`
             left: 1.5vw;
             top: ${props => props.smallScreen ? '150px' : '200px'};
 
-            width: ${props => !props.open ? '0vw' : props.scrollTop >= 8 ?  '0px' : '97vw'};
+            width: ${props => !props.open ? '0vw' : props.scrollTop >= 8 ?  '0vw' : '97vw'};
             max-width: 1400px;
             aspect-ratio: 1247 / 168;
             
-            -webkit-mask-box-image: url(${PseudonymMask});
+            mask-image: url(${PseudonymMask});
+            -webkit-mask-image: url(${PseudonymMask});
             mask-position: center;
             mask-size: contain;
             mask-repeat: no-repeat;
@@ -59,7 +60,7 @@ export const CVWrapper = styled.div`
         #profession {
             z-index: 3;
 
-            position: absolute;
+            position: ${props => !props.open ? 'static' : 'absolute'};
             left: ${props => props.scrollTop >= 5 ? '100%' : '50%'};
             top: ${props => props.scrollTop >= 5 ? '50vh': props.bottomLine+'px'};
 

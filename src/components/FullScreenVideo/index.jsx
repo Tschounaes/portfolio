@@ -8,7 +8,7 @@ const FullScreenVideo = () => {
     const innerSize = useResize();
 
     return (
-        <FullScreenVideoWrapper>
+        <FullScreenVideoWrapper size={innerSize}>
             <video 
                 height={fillDisplay(innerSize, 1920/1080).height}
                 type='video/mp4'
@@ -16,6 +16,7 @@ const FullScreenVideo = () => {
                 autoPlay={true}
                 loop
                 muted
+                playsInline
             />
         </FullScreenVideoWrapper>
     )
