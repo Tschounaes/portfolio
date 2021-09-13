@@ -46,8 +46,9 @@ export const CVWrapper = styled.div`
             max-width: 1400px;
             aspect-ratio: 1247 / 168;
             
-            mask-image: url(${PseudonymMask});
             -webkit-mask-image: url(${PseudonymMask});
+            mask-image: url(${PseudonymMask});
+            
             mask-position: center;
             mask-size: contain;
             mask-repeat: no-repeat;
