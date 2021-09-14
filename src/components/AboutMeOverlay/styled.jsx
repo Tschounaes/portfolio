@@ -9,43 +9,66 @@ export const AboutMeOverlayWrapper = styled.div`
     left: ${props => !props.open ? '1.5em' : '0em'};
     background-color: ${props => !props.open ? props.theme.Transparent : props.theme.Skobeloff66};
     border-radius: ${props => !props.open ? '75px' : '0px'};
-    padding: 15px;
+    padding: ${props => !props.open ? '15px' : '0px'};
     cursor: ${props => !props.open ? 'pointer' : 'default'} ;
-    z-index: 1;
+    z-index: 3;
     transition: ${props => !props.open ? 'all 0.4s 0.2s' : 'all 1.2s'} ;
 
     .close-button {
-        height: 30px;
-        aspect-ratio: 1 / 1;
-        background-color: ${props => !props.open ? props.theme.Transparent : props.theme.OuterSpaceCrayola};
         position: absolute;
+
         right: 3em;
         top: 2em;
-        border-radius: 50%;
+        height: 30px;
+
         display: flex;
         align-items: center;
         justify-content: center;
+
+        background-color: ${props => 
+            !props.open ? 
+            props.theme.Transparent : 
+            props.toggleClose ? 
+            props.theme.InternationalOrangeGoldenGateBridge : 
+            props.theme.OuterSpaceCrayola};
+        border-radius: 15px;
+        padding: 0px 6px;  
         cursor: pointer;
         opacity: 0;
+
         animation-name: delay-appear;
         animation-duration: 1s;
         animation-delay: 1.6s;
         animation-fill-mode: forwards;
 
-        :hover {
-            background-color: ${props => !props.open ? props.theme.Transparent : props.theme.InternationalOrangeGoldenGateBridge};
-        }
-
         transition: background-color 0.4s;
 
         .cross-container {
-            width: 60%;
             height: 60%;
+            aspect-ratio: 1 / 1;
             background-color: ${props => !props.open ? props.theme.Transparent : props.theme.ChampagnePink};
             -webkit-mask-box-image: url(${props => props.crossIcon});
             mask-repeat: no-repeat;
             mask-size: contain;
-            mask-position: center;    
+            mask-position: center;
+        }
+
+        p {
+            font-size: ${props => props.theme.S};
+            white-space: nowrap;
+            width: ${props => 
+                !props.toggleClose ? '0px' : '90px' };
+            overflow: hidden;
+
+            transition: width 0.4s;
+        }
+
+        :hover {
+            background-color: ${props => !props.open ? props.theme.Transparent : props.theme.InternationalOrangeGoldenGateBridge};
+
+            p {
+                width: 90px;
+            }
         }
 
         @keyframes delay-appear {
@@ -76,9 +99,17 @@ export const AboutMeOverlayWrapper = styled.div`
  
     svg {
         fill: ${props => !props.open ? props.theme.InternationalOrangeGoldenGateBridge : props.theme.ChampagnePink};
+        padding-top: ${props => !props.open ? '0px' : '30px'};
         height: 100px;
         width: 100px;
-        transition: fill 0.4s 0.2s;
+        transition: fill 0.4s 0.2s, padding-top 1.2s;
+    }
+
+    @media screen and (max-height: 400px) {
+        svg {
+            height: 62px;
+            width: 62px;
+        }
     }
 
     :hover {

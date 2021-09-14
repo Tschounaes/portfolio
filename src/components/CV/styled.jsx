@@ -5,7 +5,7 @@ import PseudonymMask from '../../assets/svg/pseudo-mask.svg';
 
 
 export const CVWrapper = styled.div`
-    top: -100px;
+    //top: -100px;
     height: ${props => !props.open ? '0vh' : '100vh'};
     max-width: ${props => !props.open ? '0px' : '1000px'};
     width: ${props => !props.open ? '0vh' : '100%'};
@@ -14,6 +14,7 @@ export const CVWrapper = styled.div`
         'height 1.2s 0.4s, width 1.2s 0.4s, max-width 1.2s 0.4s, opacity 0s' : 
         'height 1.2s, width 1.2s, max-width 1.2s, opacity 0.4s 1.2s'};
     overflow-y: scroll;
+    mask-image: ${props => props.applyMask ? 'linear-gradient(transparent 0%, rgba(1,1,1,1) 8%)' : 'none'};
 
     #introduction {
         display: flex;
@@ -88,9 +89,9 @@ export const CVWrapper = styled.div`
 
             position: relative;
 
-            padding-bottom: ${props => props.smallScreen ? '10%' : '20%'};
+            padding-bottom: ${props => props.smallScreen ? '12%' : '20%'};
             width: ${props => !props.open ? '0vh' : '100%'};
-            
+
             opacity: 0;
             user-select: none; /* Standard */
             -webkit-user-select: none; /* Safari */        
@@ -126,8 +127,14 @@ export const CVWrapper = styled.div`
                 z-index: 3;
                 width: ${props => props.smallScreen ? '100%' : '64%'};
 
+                h2 {
+                    padding-left: 15px;
+
+                }
+
                 p {
                 padding-left: 40px;
+                padding-right: 40px;
                 }
             }
         }
@@ -140,6 +147,7 @@ export const CVWrapper = styled.div`
 
         h2 {
             margin-top: 30px;
+            padding-left: 15px;
             text-transform: capitalize;
         }
         
@@ -151,8 +159,8 @@ export const CVWrapper = styled.div`
             grid-template-areas: 'ts nm' 'ts pl' 'ts dc';
             grid-column-gap: 15px;
             margin-bottom: 1em;
-            
 
+            
             li {
                 width: 100%;
                 list-style: none;

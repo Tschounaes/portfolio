@@ -12,6 +12,7 @@ const CV = (props) => {
     // scrolling change handling
     const container = useRef();
     const [scrollTop, setScrollTop] = useState();
+    const [applyMask, setApplyMask] = useState(false);
 
     //bottomline of pseudo-container
     const pseudo = useRef();
@@ -70,6 +71,14 @@ const CV = (props) => {
         return () => window.removeEventListener('resize', resizeListener);
     },[])
 
+    useEffect(() => {
+        let maskApplyTimeout;
+        if (scrollTop >= 5) {
+             maskApplyTimeout = setTimeout(() => setApplyMask(true), 1200);
+        } else {
+           return applyMask ? setApplyMask(false) : clearTimeout(maskApplyTimeout);
+        }
+    },[scrollTop, applyMask])
 
 
 
@@ -81,6 +90,7 @@ const CV = (props) => {
             /* attributes from refs */
             open={props.open} 
             scrollTop={scrollTop}
+            applyMask={applyMask}
             bottomLine={bottomLine}
             smallScreen={smallScreen} 
             >

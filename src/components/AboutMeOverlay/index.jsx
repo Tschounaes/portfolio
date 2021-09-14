@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
+import useZustand from '../../store_zustand';
 import { ReactComponent as TschounaesLogo } from '../../assets/svg/tschounaes_icon.svg';
 import { AboutMeOverlayWrapper } from './styled';
 import CrossIcon from '../../assets/svg/cross_icon.svg';
@@ -8,31 +9,32 @@ import CV from '../CV';
 
 
 const AboutMeOverlay = () => {
-    const [ open, setOpen ] = useState(window.innerWidth > 1000);
+    const { closeAboutMe, aboutOpen, setAboutOpen } = useZustand();
 
     const openHandler = () => {
-        if (!open) {
-            setOpen(true);
+        if (!aboutOpen) {
+            setAboutOpen(true);
         } else {
             return null;
         }
     }
 
     const closeHandler = () => {
-        if (open) {
-            setOpen(false);
+        if (aboutOpen) {
+            setAboutOpen(false);
         } else {
             return null;
         }
     }
 
     return (
-        <AboutMeOverlayWrapper onClick={openHandler} open={open} crossIcon={CrossIcon}>
+        <AboutMeOverlayWrapper onClick={openHandler} open={aboutOpen} toggleClose={closeAboutMe} crossIcon={CrossIcon}>
             <TschounaesLogo alt='tschounaes_logo'/>
             <p id='about-me-title'>aboute me</p>
-                <CV open={open}/>
-            { open &&
+                <CV open={aboutOpen}/>
+            { aboutOpen &&
                 <div className='close-button' onClick={closeHandler}>
+                    <p>Close About Me</p>
                     <div className='cross-container'></div>
                 </div> 
             }
