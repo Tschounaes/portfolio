@@ -3,10 +3,12 @@ import { createGlobalStyle } from 'styled-components';
 export const DefaultTheme = {
     //colors
     OuterSpaceCrayola: 'rgba(40, 61, 59, 1)',
+    OuterSpaceCrayola66: 'rgba(40, 61, 59, 0.5)',
     Skobeloff: 'rgba(25, 114, 120, 1)',
-    Skobeloff66: 'rgba(25, 114, 120, 0.66)',
+    Skobeloff66: 'rgba(25, 114, 120, 0.5)',
     ChampagnePink: 'rgba(237, 221, 212, 1)',
     InternationalOrangeGoldenGateBridge: 'rgba(196, 69, 54, 1)',
+    InternationalOrangeGoldenGateBridge66: 'rgba(196, 69, 54, 0.66)',
     LiverOrgan: 'rgba(119, 46, 37, 1)',
     Transparent: 'rgba(25, 114, 120, 0)',
 
@@ -24,7 +26,7 @@ export const GlobalStyle = createGlobalStyle`
         -webkit-tap-highlight-color: transparent;
         ::-webkit-scrollbar {
             background-color: transparent;
-            width: 3px;
+            width: 0px;
             
 
         }

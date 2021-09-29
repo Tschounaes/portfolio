@@ -35,10 +35,14 @@ export const DevMessageWrapper = styled.div`
             white-space: nowrap;
         }
         h2 {
+            max-width: 90%;
             font-style: italic;
             font-size: ${props => props.theme.S};
             margin-bottom: 6px;
+            padding: 0px 5px;
             white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
 
         }
         p {

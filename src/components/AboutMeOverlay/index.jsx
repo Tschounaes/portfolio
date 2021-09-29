@@ -29,9 +29,11 @@ const AboutMeOverlay = () => {
 
     return (
         <AboutMeOverlayWrapper onClick={openHandler} open={aboutOpen} toggleClose={closeAboutMe} crossIcon={CrossIcon}>
-            <TschounaesLogo alt='tschounaes_logo'/>
+            <div id='logo-container'>
+                <TschounaesLogo alt='tschounaes_logo'/>
+            </div>
             <p id='about-me-title'>aboute me</p>
-                <CV open={aboutOpen}/>
+            <CV open={aboutOpen}/>
             { aboutOpen &&
                 <div className='close-button' onClick={closeHandler}>
                     <p>Close About Me</p>

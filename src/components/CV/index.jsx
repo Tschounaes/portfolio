@@ -7,12 +7,10 @@ import { CVWrapper } from './styled';
 const CV = (props) => {
     // getting the size of the image for scaling welcome message
     const image = useRef();
-    const [smallScreen, setSmallScreen] = useState(false);
     
     // scrolling change handling
     const container = useRef();
     const [scrollTop, setScrollTop] = useState();
-    const [applyMask, setApplyMask] = useState(false);
 
     //bottomline of pseudo-container
     const pseudo = useRef();
@@ -44,24 +42,27 @@ const CV = (props) => {
                 } else {
                     return yearB - yearA;
                 }
-           })
+           })         
            setCVData(data);
            setTypes(types);
         });
     }
 
-    const getWelcomeData = () => csv(WelcomeTabel).then( data => setWelcomeData(data[0]));
+    const getWelcomeData = () => {
+        csv(WelcomeTabel).then( p => {
+            return p[0];
+        }).then( data => {
+            return { ...data, image: require('../../assets/images/' + data.image).default };
+        }).then((welcomeObj) => {
+            setWelcomeData(welcomeObj)
+        });
+    };
 
-    const getRefs = () => {
-        image.current.getBoundingClientRect().width <= 320.1 ? 
-        setSmallScreen(true) : 
-        setSmallScreen(false);
-        setBottomLine(pseudo.current.getBoundingClientRect().bottom)
-    }
+    const getRefs = () => setBottomLine(pseudo.current.getBoundingClientRect().bottom)
 
     useEffect(() => {
         getCVData();
-        getWelcomeData();
+        getWelcomeData();   
         let timeoutId = null;
         const resizeListener = () => {
             clearTimeout(timeoutId);
@@ -71,17 +72,6 @@ const CV = (props) => {
         return () => window.removeEventListener('resize', resizeListener);
     },[])
 
-    useEffect(() => {
-        let maskApplyTimeout;
-        if (scrollTop >= 5) {
-             maskApplyTimeout = setTimeout(() => setApplyMask(true), 1200);
-        } else {
-           return applyMask ? setApplyMask(false) : clearTimeout(maskApplyTimeout);
-        }
-    },[scrollTop, applyMask])
-
-
-
     return (
         <CVWrapper 
             ref={container}
@@ -90,18 +80,26 @@ const CV = (props) => {
             /* attributes from refs */
             open={props.open} 
             scrollTop={scrollTop}
-            applyMask={applyMask}
             bottomLine={bottomLine}
-            smallScreen={smallScreen} 
+            smallScreen={false} 
             >
 
             <article id='introduction'>
-                <p id='hi-i-am'>Hi, I am</p>   
+                <p id='hi-i-am'>Hi, I'm</p>   
                 <div id='pseudonym-container' ref= { pseudo } ></div>
-                <h1 id='profession'>{welcomeData.profession}</h1>
+                <div id='profession'>
+                    <div>
+                    { welcomeData.profession &&
+                        welcomeData.profession.split('').map((letter,index) => {
+                            return (
+                            <h1 key={index + '_profession'}>{letter}</h1>
+                            )})
+                    }
+                    </div>
+                </div>
                 <h1 id='invisible-text'>{welcomeData.pseudonym}</h1>
                 
-                <div className={'welcomeContainer'}>
+                <div id={'welcome-container'}>
                     <div id='welcome-text'>
                         <h2>{`${welcomeData.firstName} ${welcomeData.secondName} ${welcomeData.lastName}`}</h2>
                         <p>{welcomeData.introduction}</p>
@@ -134,6 +132,7 @@ const CV = (props) => {
                     )
                 })
             } 
+            <div className='cv-footer'></div>
 
         </CVWrapper>
     )

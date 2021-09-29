@@ -12,6 +12,12 @@ export const AboutMeOverlayWrapper = styled.div`
     padding: ${props => !props.open ? '15px' : '0px'};
     cursor: ${props => !props.open ? 'pointer' : 'default'} ;
     z-index: 3;
+    -webkit-box-shadow: ${props => props.open ? 
+        '0px 0px 40px 20px rgba(0,0,0,0.5)' :
+        '0px 0px 0px 0px rgba(0,0,0,0)' }; 
+    box-shadow:  ${props => props.open ? 
+        '0px 0px 40px 20px rgba(0,0,0,0.5)' :
+        '0px 0px 0px 0px rgba(0,0,0,0)' };
     transition: ${props => !props.open ? 'all 0.4s 0.2s' : 'all 1.2s'} ;
 
     .close-button {
@@ -30,7 +36,7 @@ export const AboutMeOverlayWrapper = styled.div`
             props.theme.Transparent : 
             props.toggleClose ? 
             props.theme.InternationalOrangeGoldenGateBridge : 
-            props.theme.OuterSpaceCrayola};
+            props.theme.Skobeloff};
         border-radius: 15px;
         padding: 0px 6px;  
         cursor: pointer;
@@ -84,8 +90,8 @@ export const AboutMeOverlayWrapper = styled.div`
     #about-me-title { 
         height: 0px;
         width: 100%;
-        margin-top: 6px;
-        margin-bottom: 6px;
+        margin-top: ${props => !props.open ? '6px' : '0px'};
+        margin-bottom: ${props => !props.open ? '6px' : '0px'};
         font-size: ${props => props.theme.S};
         text-align: center;
         text-transform: capitalize;
@@ -96,34 +102,68 @@ export const AboutMeOverlayWrapper = styled.div`
         -ms-user-select: none; /* IE10+/Edge */
         transition: height 0.4s 0.2s, opacity 0.4s 0.2s, margin 0.4s 0.2s;
     }
- 
-    svg {
-        fill: ${props => !props.open ? props.theme.InternationalOrangeGoldenGateBridge : props.theme.ChampagnePink};
-        padding-top: ${props => !props.open ? '0px' : '30px'};
-        height: 100px;
-        width: 100px;
-        transition: fill 0.4s 0.2s, padding-top 1.2s;
+    #logo-container {
+        background-color: ${props => !props.open ? props.theme.Transparent : props.theme.OuterSpaceCrayola66};
+        width: 100%;
+        display: flex;
+        justify-content: center;
+
+        animation-name: ${props => !props.open ? 'none' : 'anim'};
+        animation-duration: 0.4s;
+        animation-delay: 1.2s;
+        animation-fill-mode: backwards;
+
+        transition: background-color 0.4s;
+
+        @keyframes anim {
+            from {
+                background-color: ${props => props.theme.Transparent}
+            }
+            to {
+                background-color: ${props => props.theme.OuterSpaceCrayola66}
+            }
+        }
+
+        svg { 
+            fill: ${props => !props.open ? props.theme.InternationalOrangeGoldenGateBridge : props.theme.ChampagnePink};
+            padding-top: ${props => !props.open ? '0px' : '30px'};
+            padding-bottom: ${props => !props.open ? '0px' : '30px'};
+            height: 100px;
+            transition: fill 0.4s 0.2s, padding-top 1.2s;
+        }
     }
 
-    @media screen and (max-height: 400px) {
-        svg {
-            height: 62px;
-            width: 62px;
+    @media screen and (max-height: 420px) {
+        #logo-container{
+            svg {
+                height: 62px;
+                padding-top: ${props => !props.open ? '0px' : '15px'};
+                padding-bottom: ${props => !props.open ? '0px' : '15px'};
+                }
         }
     }
 
     :hover {
         background-color: ${props => !props.open ? props.theme.InternationalOrangeGoldenGateBridge : props.theme.Skobeloff};
-
-        svg {
-            fill: ${props => props.theme.ChampagnePink};
+        #logo-container {
+            background-color: ${props => !props.open ? props.theme.Transparent : props.theme.OuterSpaceCrayola};
+            svg {
+                fill: ${props => props.theme.ChampagnePink};
+            }
         }
 
+        
+        .cv-footer {
+            background-color: ${props => !props.open ? props.theme.Transparent : props.theme.OuterSpaceCrayola};
+        }
         #about-me-title {
             height: ${props => !props.open ? '12px' : '0px'};
-            margin-top: 6px;
-            margin-bottom: 6px;
+            margin-top: ${props => !props.open ? '6px' : '0px'};
+            margin-bottom: ${props => !props.open ? '6px' : '0px'};
             opacity: ${props => !props.open ? '1' : '0'};
         }
     }
+
+    
+    
 `

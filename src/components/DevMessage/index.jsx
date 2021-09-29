@@ -45,13 +45,13 @@ const DevMessage = (props) => {
                 { props.title && 
                 <>
                     <h1>{ props.title }</h1>
-                    <h2>{window.location.href }</h2>
+                    <h2>{ props.location ? props.location : window.location.href }</h2>
                     
                 </>
                 }
                 { !props.title && 
                 <>
-                    <h1>{ window.location.href }</h1> 
+                    <h1>{ props.location ? props.location : window.location.href }</h1> 
                 </>
                 }
                 <p>{ props.message ? props.message : 'This part of the website is in development. Thank you for visiting my portfolio website!' }</p>
