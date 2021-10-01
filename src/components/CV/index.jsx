@@ -1,7 +1,12 @@
 import React, { useEffect, useState, useRef } from 'react';
+
 import { csv } from 'd3-fetch';
+
 import CVtable from '../../assets/tabels/cv.csv';
 import WelcomeTabel from '../../assets/tabels/welcome.csv';
+import useMonths from '../../hooks/useMonths';
+import csvBeautyfyDate from '../../helpers/csvBeautyfyDate';
+
 import { CVWrapper } from './styled';
 
 const CV = (props) => {
@@ -10,20 +15,22 @@ const CV = (props) => {
     
     // scrolling change handling
     const container = useRef();
-    const [scrollTop, setScrollTop] = useState();
+    const [ scrollTop, setScrollTop ] = useState();
 
     //bottomline of pseudo-container
     const pseudo = useRef();
     const [ bottomLine, setBottomLine] = useState()
 
     // data to fill in cv
-    const [CVData, setCVData] = useState();
-    const [welcomeData, setWelcomeData] = useState({});
-    const [types, setTypes] = useState([]);
+    const [ CVData, setCVData ] = useState();
+    const [ welcomeData, setWelcomeData ] = useState({});
+    const [ types, setTypes ] = useState([]);
+    const [smallScreen, setSmallScreen] = useState(false);
+    const months = useMonths();
 
     const getScrollTop = () => {
         setScrollTop(container.current.scrollTop);
-    }    
+    };  
 
     const getCVData = () => {
         csv(CVtable).then( data => {
@@ -46,7 +53,7 @@ const CV = (props) => {
            setCVData(data);
            setTypes(types);
         });
-    }
+    };
 
     const getWelcomeData = () => {
         csv(WelcomeTabel).then( p => {
@@ -58,7 +65,11 @@ const CV = (props) => {
         });
     };
 
-    const getRefs = () => setBottomLine(pseudo.current.getBoundingClientRect().bottom)
+    const getRefs = (e) => {
+        setBottomLine(pseudo.current.getBoundingClientRect().bottom);
+        setSmallScreen(container.current.getBoundingClientRect().width < 800)
+
+    };
 
     useEffect(() => {
         getCVData();
@@ -70,7 +81,7 @@ const CV = (props) => {
         }
         window.addEventListener('resize', resizeListener)
         return () => window.removeEventListener('resize', resizeListener);
-    },[])
+    },[]);
 
     return (
         <CVWrapper 
@@ -81,7 +92,6 @@ const CV = (props) => {
             open={props.open} 
             scrollTop={scrollTop}
             bottomLine={bottomLine}
-            smallScreen={false} 
             >
 
             <article id='introduction'>
@@ -120,7 +130,10 @@ const CV = (props) => {
                                     { entry.type === type &&
                                     <ul key={'cv-entry' + entry.id}>
                                         <li className={'name'}> {entry.name}</li>
-                                        <li className={'timespan'}> {entry.from + ' - ' + entry.until}</li>
+                                        <li className={'timespan'}> 
+                                            <span>{csvBeautyfyDate(entry.from, smallScreen ? 'en_short': 'en', months) + ' – '}</span>
+                                            <span>{csvBeautyfyDate(entry.until, smallScreen ? 'en_short': 'en', months)}</span>
+                                        </li>
                                         <li className={'description'}> {entry.description}</li>
                                         <li className={'place'}> {entry.place}</li>
                                     </ul>

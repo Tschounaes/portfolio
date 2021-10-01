@@ -234,7 +234,7 @@ export const CVWrapper = styled.div`
             margin-top: 30px;
             padding: 8px 30px;
             text-transform: capitalize;
-            background-color: ${props => props.theme.ChampagnePink};
+            background-color: ${props => props.theme.ChampagnePink66};
             color: ${props => props.theme.InternationalOrangeGoldenGateBridge};
             border-radius: 0px 20px 20px 0px;
             width: min-content;
@@ -243,7 +243,7 @@ export const CVWrapper = styled.div`
 
         ul {
             display: grid;
-            grid-template-columns: 30% 70% ;
+            grid-template-columns: 35% 65% ;
             grid-template-rows: auto auto auto;
             grid-template-areas: 'ts nm' 'ts pl' 'ts dc';
             grid-column-gap: 15px;
@@ -252,6 +252,11 @@ export const CVWrapper = styled.div`
             li {
                 width: 100%;
                 list-style: none;
+                span {
+                    display: inline-block;
+                    white-space: nowrap;
+                    margin-right: 3px;
+                }
             }
             .name {
                 grid-area: nm;
@@ -291,4 +296,11 @@ export const CVWrapper = styled.div`
                 margin-bottom: 92px;
             }
         }
+    @media screen and (max-width: 420px) {
+        .cv-topic {
+            ul {
+                font-size: 14px;
+            }
+        }
+    }
 `

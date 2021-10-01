@@ -6,6 +6,7 @@ export const FullScreenVideoWrapper = styled.div`
     height: ${props => `${props.size.height}px`};
     display: flex;
     cursor: ${props => props.open ? 'pointer' : 'default'};
+    transition: all 0.4s;
 
     align-items: center;
     justify-content: center;

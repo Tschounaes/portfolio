@@ -144,7 +144,9 @@ const TschounaesPlayer = (props) => {
             <video
                 ref={video} 
                 type='video/mp4'
+                playsInline
                 src={props.src}
+                poster={props.alt}
                 onTimeUpdate={handleTime}
                 onCanPlay={handleLoad} />
             { loaded ?
@@ -157,11 +159,11 @@ const TschounaesPlayer = (props) => {
                 {!playing ? <PlayIcon/> : null}
             </div> :
             <div id='load-message' image={props.alt}>
-            <img src={props.alt}/>
+            <img src={props.alt} alt={`preview ${video}` }/>
             <DevMessage 
-                title={'Loading'}
-                location={props.alt}
-                message={'The video will soon be ready to play!'}/>
+                title={'Loading Video'}
+                location={props.src}
+                message={`Just a second, I'm getting loaded from Dropbox! ^^'`}/>
             </div>
             }
             
@@ -171,10 +173,10 @@ const TschounaesPlayer = (props) => {
                     ref={playbar}
                     id='playbar'>
                     <div id='playbar-bg'></div>
-                    <div id='buffer' style={ {width: `${(buffertime/duration)*100}%`} }></div>
-                    <div id='jimmy' style={ {width: `${pos*100}%`} }></div>
-                    <div id='progress' style={ {width: `${(vidtime/duration)*100}%`} }></div>
-                    <div id='timestamp' style={{left: `${mouseOver ? pos*100 : (vidtime/duration)*100}%`}}>{secToTimestamp(mouseOver ? (pos*duration).toFixed(2) : vidtime)}</div>
+                    <div id='buffer' style={ {width: `${(buffertime/duration) * 100}%`} }></div>
+                    <div id='jimmy' style={ {width: `${pos * 100}%`} }></div>
+                    <div id='progress' style={ {width: `${(vidtime/duration) * 100}%`} }></div>
+                    <div id='timestamp' style={{left: `${mouseOver ? pos * 100 : (vidtime/duration) * 100}%`}}>{secToTimestamp(mouseOver ? (pos * duration).toFixed(2) : vidtime)}</div>
                     <div 
                         onMouseMove={moveJimmy}
                         onMouseOut={moveJimmy}

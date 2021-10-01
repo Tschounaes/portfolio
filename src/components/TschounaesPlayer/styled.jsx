@@ -6,7 +6,6 @@ export const TschounaesPlayerWrapper = styled.div`
     --smooth-appear: appear 0.8s 0.2;
     
     width: 100%;
-    max-width: 720px;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -126,7 +125,7 @@ export const TschounaesPlayerWrapper = styled.div`
                 aspect-ratio: 1 / 1;
                 height: 32px;
                 border-radius: 16px;
-                margin-right: 4px;
+                margin-right: 8px;
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -136,11 +135,13 @@ export const TschounaesPlayerWrapper = styled.div`
                     height: 50%;
                     width: 50%;
                 }
-
                 :hover {
                     background-color: ${props => props.theme.InternationalOrangeGoldenGateBridge};
                 }
             }
+            div:last-child {
+                margin-right: 0px;
+                }
         }
     }
 

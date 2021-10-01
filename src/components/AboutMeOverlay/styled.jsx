@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const AboutMeOverlayWrapper = styled.div`
-    position: absolute;
+    position: fixed;
     display: flex;
     flex-direction: column;
     align-items: center;

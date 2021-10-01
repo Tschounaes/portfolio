@@ -7,6 +7,7 @@ export const DefaultTheme = {
     Skobeloff: 'rgba(25, 114, 120, 1)',
     Skobeloff66: 'rgba(25, 114, 120, 0.5)',
     ChampagnePink: 'rgba(237, 221, 212, 1)',
+    ChampagnePink66: 'rgba(237, 221, 212, 0.5)',
     InternationalOrangeGoldenGateBridge: 'rgba(196, 69, 54, 1)',
     InternationalOrangeGoldenGateBridge66: 'rgba(196, 69, 54, 0.66)',
     LiverOrgan: 'rgba(119, 46, 37, 1)',
@@ -27,8 +28,6 @@ export const GlobalStyle = createGlobalStyle`
         ::-webkit-scrollbar {
             background-color: transparent;
             width: 0px;
-            
-
         }
         ::-webkit-scrollbar-button {
             visibility: hidden;
@@ -51,10 +50,13 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     #root {
-        overflow: hidden;
+        overflow: hidden;   
     }
     
     body {
+        display: fixed;
+        width: 100vw;
+        height: 100%;
         margin: 0px;
         padding: 0px;
         background-color: ${props => props.theme.OuterSpaceCrayola};

@@ -17,7 +17,6 @@ import AboutMeOverlay from './components/AboutMeOverlay';
 
 const App = () => {
 
-
   return (
     <div>
     <Router>

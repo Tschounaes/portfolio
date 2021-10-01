@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const SocialContainer = styled.div`
     z-index: 1;
-    position: absolute;
+    position: fixed;
     bottom: 2em;
     display: flex;
     justify-content: flex-end;
