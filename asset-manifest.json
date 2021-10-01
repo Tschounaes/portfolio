@@ -1,17 +1,18 @@
 {
   "files": {
-    "main.js": "/portfolio/static/js/main.ae283104.chunk.js",
-    "main.js.map": "/portfolio/static/js/main.ae283104.chunk.js.map",
+    "main.js": "/portfolio/static/js/main.423722a0.chunk.js",
+    "main.js.map": "/portfolio/static/js/main.423722a0.chunk.js.map",
     "runtime-main.js": "/portfolio/static/js/runtime-main.7ebf164f.js",
     "runtime-main.js.map": "/portfolio/static/js/runtime-main.7ebf164f.js.map",
-    "static/js/2.080b3613.chunk.js": "/portfolio/static/js/2.080b3613.chunk.js",
-    "static/js/2.080b3613.chunk.js.map": "/portfolio/static/js/2.080b3613.chunk.js.map",
+    "static/js/2.70917bf1.chunk.js": "/portfolio/static/js/2.70917bf1.chunk.js",
+    "static/js/2.70917bf1.chunk.js.map": "/portfolio/static/js/2.70917bf1.chunk.js.map",
     "index.html": "/portfolio/index.html",
-    "static/js/2.080b3613.chunk.js.LICENSE.txt": "/portfolio/static/js/2.080b3613.chunk.js.LICENSE.txt",
+    "static/js/2.70917bf1.chunk.js.LICENSE.txt": "/portfolio/static/js/2.70917bf1.chunk.js.LICENSE.txt",
     "static/media/audio_off.9f04e1a8.svg": "/portfolio/static/media/audio_off.9f04e1a8.svg",
     "static/media/audio_on.45bb107a.svg": "/portfolio/static/media/audio_on.45bb107a.svg",
     "static/media/blog_icon.ab0d4447.svg": "/portfolio/static/media/blog_icon.ab0d4447.svg",
     "static/media/boddyssey_icon.59bc3f28.svg": "/portfolio/static/media/boddyssey_icon.59bc3f28.svg",
+    "static/media/boddyssey_trailer_jonas_bienz_website_still.png": "/portfolio/static/media/boddyssey_trailer_jonas_bienz_website_still.ca5517f9.png",
     "static/media/cross_icon.1205cf8b.svg": "/portfolio/static/media/cross_icon.1205cf8b.svg",
     "static/media/cv.f52ea42e.csv": "/portfolio/static/media/cv.f52ea42e.csv",
     "static/media/cv_mask.eab58de5.svg": "/portfolio/static/media/cv_mask.eab58de5.svg",
@@ -29,6 +30,8 @@
     "static/media/placempus_icon.8b9b1ec6.svg": "/portfolio/static/media/placempus_icon.8b9b1ec6.svg",
     "static/media/placempus_jonas_bienz_website_still.jpg": "/portfolio/static/media/placempus_jonas_bienz_website_still.06e3ab95.jpg",
     "static/media/play_icon.5a0e6a24.svg": "/portfolio/static/media/play_icon.5a0e6a24.svg",
+    "static/media/projects.d5eaa521.csv": "/portfolio/static/media/projects.d5eaa521.csv",
+    "static/media/projects_credits.33af95ad.csv": "/portfolio/static/media/projects_credits.33af95ad.csv",
     "static/media/pseudo-mask.3d585b2c.svg": "/portfolio/static/media/pseudo-mask.3d585b2c.svg",
     "static/media/showreel2021.c298ba7d.mp4": "/portfolio/static/media/showreel2021.c298ba7d.mp4",
     "static/media/tschounaes_icon.382c47bd.svg": "/portfolio/static/media/tschounaes_icon.382c47bd.svg",
@@ -36,7 +39,7 @@
   },
   "entrypoints": [
     "static/js/runtime-main.7ebf164f.js",
-    "static/js/2.080b3613.chunk.js",
-    "static/js/main.ae283104.chunk.js"
+    "static/js/2.70917bf1.chunk.js",
+    "static/js/main.423722a0.chunk.js"
   ]
 }
