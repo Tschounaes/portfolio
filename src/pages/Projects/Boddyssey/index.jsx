@@ -1,8 +1,9 @@
 import React from 'react';
 
-import StrechTitle from '../../../components/StretchTitle';
+import StretchTitle from '../../../components/StretchTitle';
 import TschounaesPlayer from '../../../components/TschounaesPlayer';
 import ProjectInfo from '../../../components/ProjectInfo';
+import Posts from '../../../components/Posts';
 
 import { ProjectWrapper } from '../styled';
 
@@ -20,11 +21,19 @@ const Boddyssey = () => {
         <ProjectWrapper>
             <section className='aside-box'></section>
             <main>
-                <StrechTitle title={projectTitle}/>
+                <div className='head-pusher'></div>
+                <StretchTitle 
+                    title={projectTitle}
+                    maxWidth={1024}/>
                 <TschounaesPlayer 
                     src={videoUrl}
                     alt={videoAlt}/>
                 <ProjectInfo id={projectId} />
+
+                <section className='project-blog-posts'>
+                     <h2>Blog</h2>
+                     <Posts wrapper='project' projectId={projectId}/>            
+                 </section>
             </main>
         </ProjectWrapper>
     )

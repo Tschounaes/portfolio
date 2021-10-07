@@ -4,7 +4,11 @@ const csvBeautyfyDate = (date, lang, months) => {
     let month, day, year;
     year = Number(dateData[2]) < 93 ? '20' + dateData[2] : '19' + dateData[2];
     day = Number(dateData[1])
+    try {
     month = months.filter(month => month.id === dateData[0])[0][lang ? lang : defaultLang];
+    } catch {
+        return 'Loading'
+    }
     return lang === 'en' || 'en_short' ? 
     `${month} ${day}, ${year}` :
     `${day} ${month}, ${year}`;

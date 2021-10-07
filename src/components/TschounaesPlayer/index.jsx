@@ -141,62 +141,64 @@ const TschounaesPlayer = (props) => {
         <TschounaesPlayerWrapper 
         ref={container} 
         visible={visible || mouseOver || !playing}>
-            <video
-                ref={video} 
-                type='video/mp4'
-                playsInline
-                src={props.src}
-                poster={props.alt}
-                onTimeUpdate={handleTime}
-                onCanPlay={handleLoad} />
-            { loaded ?
-            <div 
-                onClick={handlePlay} 
-                onMouseMove={handleVisible}
-                onMouseOver={ () => setHover(true) } 
-                onMouseOut={ () => setHover(false) }
-                id='play-overlay'>
-                {!playing ? <PlayIcon/> : null}
-            </div> :
-            <div id='load-message' image={props.alt}>
-            <img src={props.alt} alt={`preview ${video}` }/>
-            <DevMessage 
-                title={'Loading Video'}
-                location={props.src}
-                message={`Just a second, I'm getting loaded from Dropbox! ^^'`}/>
-            </div>
-            }
-            
-            { loaded &&
-            <div className='player-contols'>
+            <div className='tschounaes-player-gui-container'>
+                <video
+                    ref={video} 
+                    type='video/mp4'
+                    playsInline
+                    src={props.src}
+                    poster={props.alt}
+                    onTimeUpdate={handleTime}
+                    onCanPlay={handleLoad}
+                    />
+                { loaded ?
                 <div 
-                    ref={playbar}
-                    id='playbar'>
-                    <div id='playbar-bg'></div>
-                    <div id='buffer' style={ {width: `${(buffertime/duration) * 100}%`} }></div>
-                    <div id='jimmy' style={ {width: `${pos * 100}%`} }></div>
-                    <div id='progress' style={ {width: `${(vidtime/duration) * 100}%`} }></div>
-                    <div id='timestamp' style={{left: `${mouseOver ? pos * 100 : (vidtime/duration) * 100}%`}}>{secToTimestamp(mouseOver ? (pos * duration).toFixed(2) : vidtime)}</div>
+                    onClick={handlePlay} 
+                    onMouseMove={handleVisible}
+                    onMouseOver={ () => setHover(true) } 
+                    onMouseOut={ () => setHover(false) }
+                    id='play-overlay'>
+                    {!playing ? <PlayIcon/> : null}
+                </div> :
+                <div id='load-message' image={props.alt}>
+                    <DevMessage 
+                        title={'Loading Video'}
+                        location={props.src}
+                        message={`Just a second, I'm getting loaded from Dropbox! ^^'`}/>
+                </div>
+                }
+                
+                { loaded &&
+                <div className='player-contols'>
                     <div 
-                        onMouseMove={moveJimmy}
-                        onMouseOut={moveJimmy}
-                        onMouseOver={moveJimmy}
-                        onClick={moveJimmy}
-                        id='hover-container'></div>             
+                        ref={playbar}
+                        id='playbar'>
+                        <div id='playbar-bg'></div>
+                        <div id='buffer' style={ {width: `${(buffertime/duration) * 100}%`} }></div>
+                        <div id='jimmy' style={ {width: `${pos * 100}%`} }></div>
+                        <div id='progress' style={ {width: `${(vidtime/duration) * 100}%`} }></div>
+                        <div id='timestamp' style={{left: `${mouseOver ? pos * 100 : (vidtime/duration) * 100}%`}}>{secToTimestamp(mouseOver ? (pos * duration).toFixed(2) : vidtime)}</div>
+                        <div 
+                            onMouseMove={moveJimmy}
+                            onMouseOut={moveJimmy}
+                            onMouseOver={moveJimmy}
+                            onClick={moveJimmy}
+                            id='hover-container'></div>             
+                    </div>
+                    <div id='controls'>
+                        <div onClick={handlePlay} onMouseOver={() => setMouseOver(true)} onMouseOut={() => setMouseOver(false)}>
+                            {!playing ? <PlayIcon/> : <PauseIcon/>}
+                        </div>
+                        <div onClick={handleFullscreen} onMouseOver={() => setMouseOver(true)} onMouseOut={() => setMouseOver(false)}>
+                            {fullscreen ? <ExitFullscreen/> : <EnterFullscreen/>}
+                        </div>
+                        <div onClick={handleMute} onMouseOver={() => setMouseOver(true)} onMouseOut={() => setMouseOver(false)}>
+                            {mute ? <AudioOff/> : <AudioOn/>}
+                        </div>
+                    </div>
                 </div>
-                <div id='controls'>
-                    <div onClick={handlePlay} onMouseOver={() => setMouseOver(true)} onMouseOut={() => setMouseOver(false)}>
-                        {!playing ? <PlayIcon/> : <PauseIcon/>}
-                    </div>
-                    <div onClick={handleFullscreen} onMouseOver={() => setMouseOver(true)} onMouseOut={() => setMouseOver(false)}>
-                        {fullscreen ? <ExitFullscreen/> : <EnterFullscreen/>}
-                    </div>
-                    <div onClick={handleMute} onMouseOver={() => setMouseOver(true)} onMouseOut={() => setMouseOver(false)}>
-                        {mute ? <AudioOff/> : <AudioOn/>}
-                    </div>
-                </div>
+                }
             </div>
-            }
         </TschounaesPlayerWrapper>
     )
 }

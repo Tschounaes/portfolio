@@ -1,12 +1,13 @@
 import React from 'react';
 
-import StrechTitle from '../../../components/StretchTitle';
+import StretchTitle from '../../../components/StretchTitle';
 import TschounaesPlayer from '../../../components/TschounaesPlayer';
 import ProjectInfo from '../../../components/ProjectInfo';
+import Posts from '../../../components/Posts';
 
 import { ProjectWrapper } from '../styled';
 
-import PlacempusStill from '../../../assets/images/placempus_jonas_bienz_website_still.jpg'
+import PlacempusStill from '../../../assets/images/placempus_jonas_bienz_website_still.jpg';
 
 
 const Placempus = () => {
@@ -17,14 +18,25 @@ const Placempus = () => {
     const videoAlt = PlacempusStill;
 
     return (
-        <ProjectWrapper>
+        <ProjectWrapper> 
             <section className='aside-box'></section>
             <main>
-                <StrechTitle title={projectTitle}/>
-                <TschounaesPlayer 
-                    src={videoUrl}
-                    alt={videoAlt}/>
+                <div className='head-pusher'></div>
+                <StretchTitle 
+                    title={projectTitle}
+                    maxWidth={1024}/>
+                <div className='project-tschounaes-player-container'>
+                    <TschounaesPlayer 
+                        src={videoUrl}
+                        alt={videoAlt}/>
+                </div>
                 <ProjectInfo id={projectId} />
+                
+
+                <section className='project-blog-posts'>
+                    <h2>Blog</h2>
+                    <Posts wrapper='project' projectId={projectId}/>            
+                </section>
             </main>
         </ProjectWrapper>
     )

@@ -24,8 +24,6 @@ const App = () => {
       <Social />
       <AboutMeOverlay />
 
-
-
       <Switch>
         {/* START PAGE */}
         <Route exact path='/' component={Home} />
