@@ -6,6 +6,7 @@ import CVtable from '../../assets/tabels/cv.csv';
 import WelcomeTabel from '../../assets/tabels/welcome.csv';
 import useMonths from '../../hooks/useMonths';
 import csvBeautyfyDate from '../../helpers/csvBeautyfyDate';
+import sortByDate from '../../helpers/sortByDate';
 
 import { CVWrapper } from './styled';
 
@@ -40,16 +41,8 @@ const CV = (props) => {
                 types.add(a.type);
 
                 //actual sorting from date string
-                const yearA = parseInt(a.from.split('/')[2],10);
-                const yearB = parseInt(b.from.split('/')[2],10);
-                if (yearA === yearB) {
-                    const monthA = parseInt(a.from.split('/')[0],10);
-                    const monthB = parseInt(b.from.split('/')[0],10);
-                    return monthB - monthA;
-                } else {
-                    return yearB - yearA;
-                }
-           })         
+                return sortByDate(a, b, 'from');
+           });
            setCVData(data);
            setTypes(types);
         });

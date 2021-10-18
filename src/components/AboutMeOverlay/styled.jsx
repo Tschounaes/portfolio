@@ -53,7 +53,7 @@ export const AboutMeOverlayWrapper = styled.div`
             height: 60%;
             aspect-ratio: 1 / 1;
             background-color: ${props => !props.open ? props.theme.Transparent : props.theme.ChampagnePink};
-            -webkit-mask-box-image: url(${props => props.crossIcon});
+            mask: url(${props => props.crossIcon});
             mask-repeat: no-repeat;
             mask-size: contain;
             mask-position: center;

@@ -36,8 +36,6 @@ export const IconButtonWrapper = styled.button`
         min-height: ${props => props.theme.M};
         background-color: ${props => props.theme.ChampagnePink};
         mask: url(${props => props.icon}); 
-        /* -webkit-mask-image: url(${props => props.icon});
-        mask-image: url(${props => props.icon}); */
         -webkit-mask-repeat: no-repeat;
         mask-repeat: no-repeat;
         -webkit-mask-size: contain;

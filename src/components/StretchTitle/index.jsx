@@ -20,6 +20,7 @@ const StretchWrapper = styled.div`
     box-sizing: border-box;
     width: 100%;
     .mockup-title {
+        position: absolute;
         opacity: 0;
         height: 0px;
         width: 0px;

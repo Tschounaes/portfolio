@@ -1,169 +1,111 @@
 import styled from "styled-components";
 
-export const ProjectInfoWrapper = styled.div`
-    position: relative;
+export const ProjectInfoWrapper = styled.section`
+    
     width: 100%;
 
-    h2 {
-        width: 100px;
-        flex-shrink: 0;
-        }
+    article {
+        width: 100%;
+        height: 100%;
+        display: grid;
+        padding: 21px 12px 21px 12px;
 
-    ul {
-        margin: 0px;
+        h2 {
+            margin-top: 0px;
+            width: 100px;
+            white-space: nowrap;
+        }
     }
 
-    article {
-        padding: 6px 12px;
+    .project-about  {
+        width: 66%;
+        grid-template-columns: 100px auto;
+        grid-template-rows: repeat(2, auto);
+    }
+
+    .project-credits {
+        grid-template-columns: 100px auto;
+        grid-template-rows: repeat(2, auto);
+    }
+
+    .project-specs {
+        width: calc(33% - 48px);
     }
 
     .project-synopsis {
         background-color: ${props => props.theme.InternationalOrangeGoldenGateBridge66};
-        padding: 6px 12px 21px 12px;
+        grid-template-columns: 1fr;
+        width: 100%;
+        padding: 0px;   
     }
 
-    .project-credits {
+    .project-credits-list {
+        list-style: none;
         display: flex;
-        background: ${props => props.theme.Skobeloff66};
-        padding-top: 21px;
+        flex-wrap: wrap;
+        justify-content: left;
+        padding-left: 0px;
+    }
 
-        ul {
-            list-style: none;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: left;
-            padding-left: 0px;
-
-            li {
-                background: ${props => props.theme.Skobeloff};
-                margin: 4px 8px 4px 0px;
-                padding: 3px 6px;
-                border-radius: 16px;
-                display: flex;
-                align-items: center;
-                
-
-                span:first-child {
-                    color: ${props => props.theme.InternationalOrangeGoldenGateBridge};
-                    font-size: ${props => props.theme.XS};
-                    margin-right: 6px;
-                    
-                }
-                *:last-child {
-                    font-weight: bold;
-                    font-size: ${props => props.theme.S};
-       
-                }
-
-                a {
-                    font-weight: bold;
-                    text-decoration: none;
-                    color: ${props => props.theme.ChampagnePink};
-                    transition: transform 0.4s, color 0.4s;
-                }
-                a:hover {
-                    transform: scale(105%);
-                    color: ${props => props.theme.InternationalOrangeGoldenGateBridge};
-                }
-            }
+    .project-about-text, .project-synopsis-text {
+        p {
+            margin-bottom: 6px;
         }
     }
 
-    .project-about {
-        position: relative;
-        display: flex;
-        overflow: hidden;
-        background-color: ${props => props.theme.Skobeloff66};
-        mask: linear-gradient(180deg, rgba(255,255,255,1) 50%, rgba(0,0,0,0) 100%);
-       
-        // This div is a markdown-wrapper and we make the style overrides here
-        div {
-            max-width: 600px;
-            p {
-                margin-bottom: 6px;
+    .project-synopsis-text {
+        padding: 12px 12px 21px 12px;
+    }
+
+    .project-specs-list {
+        flex-direction: column;
+        list-style: none;
+        padding: 0px;
+    } 
+    
+    @media screen and (max-width: 1024px) {
+            article {
+                grid-template-columns: 1fr !important;
             }
-        }
-
-        ul {
-            min-width: 200px;
-            display: flex;
-            flex-direction: column;
-            list-style: none;
-            width: 100%;
-            align-items: center;
-            padding: 0px;
-
-            h2 {
-                width: 100%;
-                text-align: center;
-            }
-
-            li {
-                width: 100%;
-                display: flex;
-                align-items: center;
-
-                span {
-                    width: 50%;
-                }
-                span:first-child {
-                        color: ${props => props.theme.InternationalOrangeGoldenGateBridge};
-                        font-size: ${props => props.theme.S};
-                        text-transform: capitalize;
-                        margin-right: 8px;
-                        text-align: right;
-                    }
-            }
+    }
+    @media screen and (max-width: 768px) {
+        article {
+            width: 100% !important;
         }
     }
 
-    @media screen and (max-width: 512px) {
-        h2 {
-            width: 100%;
-        }
-        .project-credits, .project-about {
-            flex-wrap: wrap;
-        }
+`
 
-        .project-about {
-            div {
-                max-width: 100%;
-            }
-            ul {
-                margin-top: 12px;
-                width: 100%;
-                justify-content: left;
-                align-items: flex-start;
-                
-                h2 {
-                    text-align: left;
-                }
-                li {
-                    width: min-content;
-                        span {
-                            width: max-content;
-                        }
-                }
-            }
-        }
+export const SpecWrapper = styled.li`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3px 0px;
 
-        .project-credits {
-            ul {
-                justify-content: center;
-            }
-        }
-
+    span {
+        width: 70%;
     }
 
-    .project-about:hover {
-        cursor: pointer;
-        background-color: ${props => props.theme.Skobeloff};
+    span:first-child {
+        width: 30%;
+        color: ${props => props.theme.InternationalOrangeGoldenGateBridge};
+        font-size: ${props => props.theme.S};
+        text-transform: capitalize;
+        margin-right: 8px;
+        text-align: right;
     }
 
-    .collapsed, .collapsed:hover {
-        mask: linear-gradient(180deg, rgba(255,255,255,1) 50%, rgba(255,255,255,1) 100%);
-        border-bottom-left-radius: 15px;
-        border-bottom-right-radius: 15px;
-        overflow: scroll;
+    @media screen and (max-width: 768px) {
+        justify-content: left;
+
+        span:first-child {
+            width: 80px !important;
+            white-space: nowrap;
+            text-align: left !important;
+
+        }
+    
+        
+
     }
 `

@@ -81,8 +81,8 @@ export const PostsWrapper = styled.div`
             width: 100%;
         }
         article.project:nth-child(even) {
-        margin-right: 0px;
-    }
+            margin-right: 0px;
+        }
     }
 
 
@@ -135,16 +135,24 @@ export const PostsWrapper = styled.div`
     }
 
     .blog-start {
-        height: 200px;
+        height: 120px;
         width: 100%;
+        transition: height 0.4s;
         .project-title {
             flex-direction: row;
             position: fixed;
             
         }       
     }
+
     .blog-end {
         height: 250vh;
         width: 100%;  
+    }
+
+    @media screen and (max-width: 1450px) {
+        .blog-start {
+            height: 40px;
+        }
     }
 `

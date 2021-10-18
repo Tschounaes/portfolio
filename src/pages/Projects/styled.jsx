@@ -53,7 +53,7 @@ export const ProjectWrapper = styled.div`
             width: 0px;
         }
         .head-pusher {
-            height: 120px;
+            height: 160px;
         }
     }
     @media screen and (max-height: 420px) {

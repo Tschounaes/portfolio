@@ -4,14 +4,18 @@ export const DefaultTheme = {
     //colors
     OuterSpaceCrayola: 'rgba(40, 61, 59, 1)',
     OuterSpaceCrayola66: 'rgba(40, 61, 59, 0.5)',
+
     Skobeloff: 'rgba(25, 114, 120, 1)',
     Skobeloff66: 'rgba(25, 114, 120, 0.5)',
+
     ChampagnePink: 'rgba(237, 221, 212, 1)',
     ChampagnePink66: 'rgba(237, 221, 212, 0.5)',
+
     InternationalOrangeGoldenGateBridge: 'rgba(196, 69, 54, 1)',
     InternationalOrangeGoldenGateBridge66: 'rgba(196, 69, 54, 0.66)',
+
     LiverOrgan: 'rgba(119, 46, 37, 1)',
-    Transparent: 'rgba(25, 114, 120, 0)',
+    Transparent: 'rgba(0, 0, 0, 0)',
 
 
     //sizes
@@ -81,6 +85,10 @@ export const GlobalStyle = createGlobalStyle`
             font-size: ${props => props.theme.L};
             font-family: OpenSans, sans-serif;
             font-weight: 400;
+            margin: 0.1em 0em 0.5em 0em;
+        }
+
+        ul {
             margin: 0.1em 0em 0.5em 0em;
         }
     }
