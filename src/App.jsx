@@ -14,6 +14,7 @@ import Blog from './pages/Blog';
 import Navigation from './components/Navigation';
 import Social from './components/Social';
 import AboutMeOverlay from './components/AboutMeOverlay';
+import Footer from './components/Footer';
 
 const App = () => {
 
@@ -23,6 +24,7 @@ const App = () => {
       <Navigation /> 
       <Social />
       <AboutMeOverlay />
+      <Footer/>
 
       <Switch>
         {/* START PAGE */}

@@ -9,6 +9,7 @@ import HomeIcon from '../../assets/svg/home_icon.svg';
 import GeniusIcon from '../../assets/svg/genius_icon.svg';
 import BoddysseyIcon from '../../assets/svg/boddyssey_icon.svg';
 import PlacempusIcon from '../../assets/svg/placempus_icon.svg';
+import TschIcon from '../../assets/svg/tschounaes_icon.svg';
 
 const navContent = [
     ['home', '/', HomeIcon, '30px'],
@@ -16,6 +17,7 @@ const navContent = [
     ['placempus', '/placempus', PlacempusIcon, '56px'],
     ['spark of genius', '/spark-of-genius', GeniusIcon, '86px'],
     ['blog', '/blog', BlogIcon, '23px'],
+    ['about me', 'ABOUT_OPEN', TschIcon, '54px'],
 ]
 
 

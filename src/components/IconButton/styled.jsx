@@ -8,8 +8,8 @@ export const IconButtonWrapper = styled.button`
     margin: 0.6em, 0em;
     width: auto;
 
-    background-color: ${props => props.select ? props.theme.InternationalOrangeGoldenGateBridge : props.theme.Skobeloff};
-    z-index: ${props => props.select ? 2 : 0};
+    background-color: ${props => props.select ? props.theme.colorComplement : props.theme.colorMedium};
+    z-index: ${props => props.select ? 380 : 310};
     border-radius: 1.2em;
 
     cursor: pointer;
@@ -22,7 +22,7 @@ export const IconButtonWrapper = styled.button`
     
 
     p {
-        color: ${props => props.theme.ChampagnePink};
+        color: ${props => props.theme.colorBright};
         text-transform: capitalize;
         text-align: right;
         font-size: ${props => props.theme.S};
@@ -34,7 +34,7 @@ export const IconButtonWrapper = styled.button`
     .svg-container {
         aspect-ratio: 1 / 1;
         min-height: ${props => props.theme.M};
-        background-color: ${props => props.theme.ChampagnePink};
+        background-color: ${props => props.theme.colorBright};
         mask: url(${props => props.icon}); 
         -webkit-mask-repeat: no-repeat;
         mask-repeat: no-repeat;
@@ -45,7 +45,7 @@ export const IconButtonWrapper = styled.button`
     }
 
     :hover {
-        background-color: ${props => props.theme.InternationalOrangeGoldenGateBridge};
+        background-color: ${props => props.theme.colorComplement};
         transition: background-color 0.4s;
         p {
             width: ${props => props.width};

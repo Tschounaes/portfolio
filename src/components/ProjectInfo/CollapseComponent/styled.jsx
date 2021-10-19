@@ -4,7 +4,7 @@ const CollapseComponentWrapper = styled.div`
     overflow: hidden;
     cursor: ${props => props.collapsed ? 'zoom-out' : 'zoom-in'};
 
-    background-color: ${props => props.theme.Skobeloff66};
+    background-color: ${props => props.theme.colorMedium66};
     transition: height 0.8s, background-color 0.4s;
     
     .collapse-component-measure-box {
@@ -20,7 +20,7 @@ const CollapseComponentWrapper = styled.div`
     }
 
     :hover {
-        background-color: ${props => props.theme.Skobeloff};
+        background-color: ${props => props.theme.colorMedium};
     }
 `
 

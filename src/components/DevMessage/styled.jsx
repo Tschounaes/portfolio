@@ -11,7 +11,7 @@ export const DevMessageWrapper = styled.div`
     }
 
     article {
-        border: solid 2px ${props => props.theme.InternationalOrangeGoldenGateBridge};
+        border: solid 2px ${props => props.theme.colorComplement};
         border-radius: 15px;
         padding: 1.5em;
         width: 32%;
@@ -29,7 +29,7 @@ export const DevMessageWrapper = styled.div`
         }
 
         .gear {
-            fill: ${props => props.theme.InternationalOrangeGoldenGateBridge}
+            fill: ${props => props.theme.colorComplement}
         }
 
         h1 {

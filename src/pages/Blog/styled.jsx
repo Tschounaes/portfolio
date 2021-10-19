@@ -19,6 +19,7 @@ export const BlogWrapper = styled.main`
     }
     
     .gen-column {
+        z-index: 200;
         overflow: hidden;
         animation-name: enter;
         animation-duration: 0.4s; 
@@ -48,12 +49,6 @@ export const BlogWrapper = styled.main`
         to {
             opacity: 1;
         }
-    }
-
-    .blog-filter-container {
-        position: relative;
-        z-index: 2;
-        width: 100%;
     }
 
     @media screen and (max-width: 1450px) {

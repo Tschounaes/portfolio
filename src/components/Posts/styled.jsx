@@ -8,7 +8,7 @@ export const PostsWrapper = styled.div`
         width: 100%;
         height: 100%;
         position: absolute;
-        z-index: 1;
+        z-index: 280;
         top: 0px;
     }
 
@@ -18,7 +18,7 @@ export const PostsWrapper = styled.div`
         width: calc(50% - 6px);
         min-height: 200px;
         margin-bottom: 12px;
-        background-color: ${props => props.theme.Skobeloff66};
+        background-color: ${props => props.theme.colorMedium66};
         transition: background-color 0.4s;
 
         .blog_media {
@@ -40,7 +40,7 @@ export const PostsWrapper = styled.div`
             }
         }
         .blog_content {
-            z-index: 1;
+            z-index: 210;
             position: relative;
             top: 0px;
             left: 0px;
@@ -73,7 +73,7 @@ export const PostsWrapper = styled.div`
         margin-right: 12px;
     }
     article.project:hover {
-        background-color: ${props => props.theme.Skobeloff};
+        background-color: ${props => props.theme.colorMedium};
     }
 
     @media screen and (max-width: 512px) {
@@ -94,7 +94,7 @@ export const PostsWrapper = styled.div`
         transition: opacity 0.8s, transform 0.8s, background-color 0.4s;
         overflow: hidden;
 
-        background-color: ${props => props.theme.Skobeloff66};
+        background-color: ${props => props.theme.colorMedium66};
         .blog_media {
             width: 100%;
             transform: translateY(3px);
@@ -131,7 +131,7 @@ export const PostsWrapper = styled.div`
     }
 
     article.blog:hover {
-        background-color: ${props => props.theme.Skobeloff};
+        background-color: ${props => props.theme.colorMedium};
     }
 
     .blog-start {
@@ -146,8 +146,8 @@ export const PostsWrapper = styled.div`
     }
 
     .blog-end {
-        height: 250vh;
-        width: 100%;  
+        height: 270vh;
+        width: 100%; 
     }
 
     @media screen and (max-width: 1450px) {

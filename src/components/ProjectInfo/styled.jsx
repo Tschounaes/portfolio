@@ -33,7 +33,7 @@ export const ProjectInfoWrapper = styled.section`
     }
 
     .project-synopsis {
-        background-color: ${props => props.theme.InternationalOrangeGoldenGateBridge66};
+        background-color: ${props => props.theme.colorComplement66};
         grid-template-columns: 1fr;
         width: 100%;
         padding: 0px;   
@@ -88,7 +88,7 @@ export const SpecWrapper = styled.li`
 
     span:first-child {
         width: 30%;
-        color: ${props => props.theme.InternationalOrangeGoldenGateBridge};
+        color: ${props => props.theme.colorComplement};
         font-size: ${props => props.theme.S};
         text-transform: capitalize;
         margin-right: 8px;

@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const SocialContainer = styled.div`
-    z-index: 1;
     position: fixed;
     bottom: 2em;
     display: flex;
@@ -20,9 +19,9 @@ export const SocialContainer = styled.div`
         position: static;
         margin-left: 0.6em;
         transform: translateY(0px);
-        background-color: ${props => props.theme.Skobeloff};
+        background-color: ${props => props.theme.colorMedium};
         :hover {
-            background-color: ${props => props.theme.InternationalOrangeGoldenGateBridge};
+            background-color: ${props => props.theme.colorComplement};
             transition: background-color 0.4s;
         }
     }

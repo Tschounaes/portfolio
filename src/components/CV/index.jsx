@@ -1,4 +1,5 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef, useCallback } from 'react';
+import useZustand from '../../store_zustand';
 
 import { csv } from 'd3-fetch';
 
@@ -29,8 +30,12 @@ const CV = (props) => {
     const [smallScreen, setSmallScreen] = useState(false);
     const months = useMonths();
 
-    const getScrollTop = () => {
+    // footer handling
+    const { footerOpen, setFooterOpen, aboutOpen } = useZustand();
+
+    const handleScroll = () => {
         setScrollTop(container.current.scrollTop);
+        calcFooter();
     };  
 
     const getCVData = () => {
@@ -58,11 +63,23 @@ const CV = (props) => {
         });
     };
 
-    const getRefs = (e) => {
+    const getRefs = () => {
         setBottomLine(pseudo.current.getBoundingClientRect().bottom);
         setSmallScreen(container.current.getBoundingClientRect().width < 800)
 
     };
+
+    const calcFooter = useCallback(() => {
+        if (aboutOpen) {
+            const bottom = container.current.lastChild.getBoundingClientRect().bottom - window.innerHeight;
+            if (bottom <= 10 && bottom > -10) {
+                if (!footerOpen) {setFooterOpen(true)} else return null;
+            } else if (bottom > 10) {
+                if (footerOpen) {setFooterOpen(false)} else return null;
+            } else return null;  
+        } else return null;
+             
+    },[footerOpen, setFooterOpen, aboutOpen]);
 
     useEffect(() => {
         getCVData();
@@ -76,10 +93,14 @@ const CV = (props) => {
         return () => window.removeEventListener('resize', resizeListener);
     },[]);
 
+    useEffect(() => {
+        calcFooter();
+    },[aboutOpen, calcFooter])
+
     return (
         <CVWrapper 
             ref={container}
-            onScroll={getScrollTop}
+            onScroll={handleScroll}
             onTransitionEnd={getRefs}
             /* attributes from refs */
             open={props.open} 
@@ -137,7 +158,7 @@ const CV = (props) => {
                         </article>
                     )
                 })
-            } 
+            }
             <div className='cv-footer'></div>
 
         </CVWrapper>

@@ -27,13 +27,6 @@ export const TschounaesPlayerWrapper = styled.div`
             width: 100%;
             height: 100%;
             overflow: hidden;
-            
-            img {
-                z-index:-1;
-                position: absolute;
-                width: 100%;
-                filter: grayscale(100%);
-            }
 
             div {
                 height: 100%;
@@ -53,7 +46,7 @@ export const TschounaesPlayerWrapper = styled.div`
                 padding: 25px;
                 overflow: visible;
                 border-radius: 50%;
-                border: solid 2px ${props => props.theme.InternationalOrangeGoldenGateBridge};
+                border: solid 2px ${props => props.theme.colorComplement};
 
                 //use width, heigth and aspect-ratio to make it round!
                 width: 10%;
@@ -61,16 +54,16 @@ export const TschounaesPlayerWrapper = styled.div`
                 height: auto;
                 aspect-ratio: 1 / 1;
 
-                fill: ${props => props.theme.InternationalOrangeGoldenGateBridge};
-                background: ${props => props.theme.OuterSpaceCrayola66};
+                fill: ${props => props.theme.colorComplement};
+                background: ${props => props.theme.colorDark66};
                 transform: scale(1);
                 transition: all 0.8s;
                 cursor: pointer;
 
                 :hover {
                     border: solid 2px rgba(0,0,0,0);
-                    fill: ${props => props.theme.ChampagnePink};
-                    background: ${props => props.theme.InternationalOrangeGoldenGateBridge};
+                    fill: ${props => props.theme.colorBright};
+                    background: ${props => props.theme.colorComplement};
                     transform: scale(1.05);
                 }
             }
@@ -98,17 +91,17 @@ export const TschounaesPlayerWrapper = styled.div`
                     height: var(--height-playbar);
                 }
                 #playbar-bg {
-                    background: ${props => props.theme.OuterSpaceCrayola66};
+                    background: ${props => props.theme.colorDark66};
                     width: 100%;
                 }
                 #buffer {   
-                    background: ${props => props.theme.OuterSpaceCrayola};
+                    background: ${props => props.theme.colorDark};
                 }
                 #progress {
-                    background: ${props => props.theme.InternationalOrangeGoldenGateBridge};
+                    background: ${props => props.theme.colorComplement};
                 }
                 #jimmy {  
-                    background: ${props => props.theme.Skobeloff};
+                    background: ${props => props.theme.colorMedium};
                 }
                 #timestamp{
                     width: 80px;
@@ -131,7 +124,7 @@ export const TschounaesPlayerWrapper = styled.div`
                     cursor: pointer;
                     border: none;
                     color: none;
-                    background-color: ${props => props.theme.Skobeloff};
+                    background-color: ${props => props.theme.colorMedium};
                     aspect-ratio: 1 / 1;
                     height: 32px;
                     border-radius: 16px;
@@ -141,12 +134,12 @@ export const TschounaesPlayerWrapper = styled.div`
                     justify-content: center;
                     transition: background-color 0.4s;
                     svg {
-                        fill: ${props => props.theme.ChampagnePink};
+                        fill: ${props => props.theme.colorBright};
                         height: 50%;
                         width: 50%;
                     }
                     :hover {
-                        background-color: ${props => props.theme.InternationalOrangeGoldenGateBridge};
+                        background-color: ${props => props.theme.colorComplement};
                     }
                 }
                 div:last-child {
@@ -219,7 +212,7 @@ export const TschounaesPlayerWrapper = styled.div`
     }
 
     :fullscreen::backdrop {
-        background: ${props => props.theme.OuterSpaceCrayola};
+        background: ${props => props.theme.colorDark};
     }
 
     @media screen and (min-aspect-ratio: 16/9) {

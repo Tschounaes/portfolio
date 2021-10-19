@@ -5,26 +5,31 @@ import fillDisplay from '../../helpers/fillDisplay';
 import { FullScreenVideoWrapper } from './styled';
 import Showreel from '../../assets/video/showreel2021.mp4';
 
+import Slideshow from '../Slideshow';
+
 const FullScreenVideo = () => {
     const innerSize = useResize();
     const { aboutOpen, setAboutOpen } = useZustand();
     const { setCloseAboutMe } = useZustand();
-    const [loaded, setLoaded] = useState(false);
-    const [dots, setDots] = useState(0)
+    const [ loaded, setLoaded ] = useState(false);
+    const [ sliedeshowImgs, setSlideshowImgs ] = useState([]);
 
     const videoLoading = () => {
         setLoaded(true)
     }
 
-    useEffect(() => {
-        let dotTimer = window.setTimeout(() => {
-            setDots((dots+1)%3);
-        }, 500)
+    const getSlideshow = () => {
+        const cache = {};
+        const importAll = (r) => r.keys().forEach(key => cache[key] = r(key));
+        importAll(require.context('../../assets/images/showreel_slides', false, /\.(png|jpe?g|svg)$/));
+        const images = Object.entries(cache).map(module => module[1].default);
 
-        return () => {
-            clearTimeout(dotTimer)
-        }
-    },[dots])
+        setSlideshowImgs(images);
+    }
+
+    useEffect(() => {
+        getSlideshow()
+    },[])
 
     return (
         <FullScreenVideoWrapper 
@@ -34,7 +39,9 @@ const FullScreenVideo = () => {
             onMouseOut={() => setCloseAboutMe(false)}
             open={aboutOpen}>
             {!loaded &&
-            <h1>{'Loading' + (dots === 0 ? '.' : dots === 1 ? '..' : '...')}</h1>
+            <div style={{position: 'fixed'}}>
+                <Slideshow srcs={sliedeshowImgs}/>
+            </div>
             }
             <video
                 onPlay={videoLoading}

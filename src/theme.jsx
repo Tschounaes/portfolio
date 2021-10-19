@@ -1,21 +1,53 @@
 import { createGlobalStyle } from 'styled-components';
 
 export const DefaultTheme = {
-    //colors
-    OuterSpaceCrayola: 'rgba(40, 61, 59, 1)',
-    OuterSpaceCrayola66: 'rgba(40, 61, 59, 0.5)',
+    /* //colors VARIATION_03
+    colorDark: 'rgba(27, 32, 33, 1)',
+    colorDark66: 'rgba(27, 32, 33, 0.5)',
 
-    Skobeloff: 'rgba(25, 114, 120, 1)',
-    Skobeloff66: 'rgba(25, 114, 120, 0.5)',
+    colorMedium: 'rgba(48, 52, 63, 1)',
+    colorMedium66: 'rgba(48, 52, 63, 0.5)',
 
-    ChampagnePink: 'rgba(237, 221, 212, 1)',
-    ChampagnePink66: 'rgba(237, 221, 212, 0.5)',
+    colorBright: 'rgba(255, 217, 218, 1)',
+    colorBright66: 'rgba(255, 217, 218, 0.5)',
 
-    InternationalOrangeGoldenGateBridge: 'rgba(196, 69, 54, 1)',
-    InternationalOrangeGoldenGateBridge66: 'rgba(196, 69, 54, 0.66)',
+    colorComplement: 'rgba(234, 99, 140, 1)',
+    colorComplement66: 'rgba(234, 99, 140, 0.5)',
 
-    LiverOrgan: 'rgba(119, 46, 37, 1)',
-    Transparent: 'rgba(0, 0, 0, 0)',
+    colorComplementDark: 'rgba(137, 2, 62, 1)',
+    colorTransparent: 'rgba(0, 0, 0, 0)', */
+
+    /* //colors VARIATION_02
+    colorDark: 'rgba(29, 53, 87, 1)',
+    colorDark66: 'rgba(29, 53, 87, 0.5)',
+
+    colorComplement: 'rgba(230, 57, 70, 1)',
+    colorComplement66: 'rgba(230, 57, 70, 0.5)',
+
+    colorBright: 'rgba(241, 250, 238, 1)',
+    colorBright66: 'rgba(241, 250, 238, 0.5)',
+
+    colorMedium: 'rgba(69, 123, 157, 1)',
+    colorMedium66: 'rgba(69, 123, 157, 0.5)',
+
+    colorComplementDark: 'rgba(168, 218, 220, 1)',
+    colorTransparent: 'rgba(0, 0, 0, 0)', */
+
+    //colors VARIATION_01
+    colorDark: 'rgba(40, 61, 59, 1)',
+    colorDark66: 'rgba(40, 61, 59, 0.5)',
+
+    colorMedium: 'rgba(25, 114, 120, 1)',
+    colorMedium66: 'rgba(25, 114, 120, 0.5)',
+
+    colorBright: 'rgba(237, 221, 212, 1)',
+    colorBright66: 'rgba(237, 221, 212, 0.5)',
+
+    colorComplement: 'rgba(196, 69, 54, 1)',
+    colorComplement66: 'rgba(196, 69, 54, 0.5)',
+
+    colorComplementDark: 'rgba(119, 46, 37, 1)',
+    colorTransparent: 'rgba(0, 0, 0, 0)',
 
 
     //sizes
@@ -63,10 +95,16 @@ export const GlobalStyle = createGlobalStyle`
         height: 100%;
         margin: 0px;
         padding: 0px;
-        background-color: ${props => props.theme.OuterSpaceCrayola};
+        background-color: ${props => props.theme.colorDark};
         overflow: hidden;
         font-family: OpenSans, Roboto, sans-serif;
-        color: ${props => props.theme.ChampagnePink};
+        color: ${props => props.theme.colorBright};
+
+        svg {
+            path{
+                fill: inherit;
+            }
+        }
 
         p {
             margin-block-start: 0px;
@@ -97,6 +135,5 @@ export const GlobalStyle = createGlobalStyle`
         width: 100vw;
         height: 100vh;
         overflow: hidden;
-    }
-    
+    }   
 `;

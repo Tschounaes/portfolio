@@ -34,9 +34,10 @@ const SearchInputWrapper = styled.div`
     width: 95%;
     min-width: 150px;
     height: 36px;
-    background: ${props => props.focus ? props.theme.ChampagnePink : props.theme.ChampagnePink66};
+    background: ${props => props.focus ? props.theme.colorBright : props.theme.colorBright66};
 
     position: relative;
+    z-index: 100;
     display: flex;
     align-items: center;
     border-radius: 18px;
@@ -54,16 +55,16 @@ const SearchInputWrapper = styled.div`
         border: none;
         outline: none;
         position: absolute;
-        z-index: 2;
+        z-index: 150;
         margin: 0px;
         margin-left: calc(20px + 2 * 10px);
         padding: 0px;
-        color: ${props => props.theme.Skobeloff}
+        color: ${props => props.theme.colorMedium}
     }
 
     .search-decoration {
         position: absolute;
-        z-index: 1;
+        z-index: 110;
         display: flex;
         width: 100%;
         height: 100%;
@@ -72,7 +73,7 @@ const SearchInputWrapper = styled.div`
 
         p {
                
-            color: ${props => props.theme.InternationalOrangeGoldenGateBridge };
+            color: ${props => props.theme.colorComplement };
             width: 80%;
             font-size: ${props => props.focus ? '12px' : '16px'};
             margin-left: 3px;
@@ -82,7 +83,7 @@ const SearchInputWrapper = styled.div`
             height: auto;
             width: 20px;
             aspect-ratio: 1 / 1;
-            background: ${props => props.theme.InternationalOrangeGoldenGateBridge };
+            background: ${props => props.theme.colorComplement };
             mask: url(${props => props.icons.search});
             mask-repeat: no-repeat;
             mask-size: contain;
@@ -91,7 +92,7 @@ const SearchInputWrapper = styled.div`
     }
     
     .clear-button {
-        z-index: 2;
+        z-index: 150;
         position: absolute;
         right: 0px;
         margin-right: 10px;
@@ -118,16 +119,16 @@ const SearchInputWrapper = styled.div`
             height: 14px;
             width: auto;
             aspect-ratio: 1 / 1;
-            background: ${ props => props.theme.InternationalOrangeGoldenGateBridge };
+            background: ${ props => props.theme.colorComplement };
             mask: url(${ props => props.icons.cross });
             mask-repeat: no-repeat;
             mask-size: contain;
         }
 
         :hover {
-            background-color: ${ props => props.theme.InternationalOrangeGoldenGateBridge };
+            background-color: ${ props => props.theme.colorComplement };
             .cross-icon-container {
-                background-color: ${ props => props.theme.ChampagnePink };
+                background-color: ${ props => props.theme.colorBright };
             }
         }
     }

@@ -3,8 +3,10 @@ import StretchTitle from '../../../components/StretchTitle';
 import TschounaesPlayer from '../../../components/TschounaesPlayer';
 import ProjectInfo from '../../../components/ProjectInfo';
 import Posts from '../../../components/Posts';
+import ProjectFooterPusher from '../../../components/Footer/ProjectFooterPusher';
 
 import { ProjectWrapper } from '../styled';
+import Banner from '../../../components/Banner';
 
 import SparkStill from '../../../assets/images/sparkofgenius_jonas_bienz_website_still.png';
 
@@ -17,22 +19,25 @@ const SparkOfGenius = () => {
 
      return (
          <ProjectWrapper>
-             <section className='aside-box'></section>
-             <main>
-                <div className='head-pusher'></div>
-                <StretchTitle 
-                    title={projectTitle}
-                    maxWidth={1024}/>
-                <TschounaesPlayer 
-                    src={videoUrl}
-                    alt={videoAlt}/>
-                <ProjectInfo id={projectId} />
+            <Banner src={videoAlt}/>
+            <section className='aside-box'></section>
+            <main>
+            <div className='head-pusher'></div>
+            <StretchTitle 
+                title={projectTitle}
+                maxWidth={1024}/>
+            <TschounaesPlayer 
+                src={videoUrl}
+                alt={videoAlt}/>
+            <ProjectInfo id={projectId} />
 
-                <section className='project-blog-posts'>
-                    <h2>Blog</h2>
-                    <Posts wrapper='project' projectId={projectId}/>            
-                </section>         
-             </main>
+            <section className='project-blog-posts'>
+                <h2>Blog</h2>
+                <Posts wrapper='project' projectId={projectId}/>            
+            </section>  
+            <ProjectFooterPusher/>       
+            </main>
+            
          </ProjectWrapper>
      )
 }

@@ -7,11 +7,11 @@ export const AboutMeOverlayWrapper = styled.div`
     align-items: center;
     top: ${props => !props.open ? '1.2em' : '0em'}; 
     left: ${props => !props.open ? '1.5em' : '0em'};
-    background-color: ${props => !props.open ? props.theme.Transparent : props.theme.Skobeloff66};
+    background-color: ${props => !props.open ? props.theme.colorTransparent : props.theme.colorMedium66};
     border-radius: ${props => !props.open ? '75px' : '0px'};
     padding: ${props => !props.open ? '15px' : '0px'};
     cursor: ${props => !props.open ? 'pointer' : 'default'} ;
-    z-index: 3;
+    z-index: 400;
     -webkit-box-shadow: ${props => props.open ? 
         '0px 0px 40px 20px rgba(0,0,0,0.5)' :
         '0px 0px 0px 0px rgba(0,0,0,0)' }; 
@@ -33,10 +33,10 @@ export const AboutMeOverlayWrapper = styled.div`
 
         background-color: ${props => 
             !props.open ? 
-            props.theme.Transparent : 
+            props.theme.colorTransparent : 
             props.toggleClose ? 
-            props.theme.InternationalOrangeGoldenGateBridge : 
-            props.theme.Skobeloff};
+            props.theme.colorComplement : 
+            props.theme.colorMedium};
         border-radius: 15px;
         padding: 0px 6px;  
         cursor: pointer;
@@ -52,7 +52,7 @@ export const AboutMeOverlayWrapper = styled.div`
         .cross-container {
             height: 60%;
             aspect-ratio: 1 / 1;
-            background-color: ${props => !props.open ? props.theme.Transparent : props.theme.ChampagnePink};
+            background-color: ${props => !props.open ? props.theme.colorTransparent : props.theme.colorBright};
             mask: url(${props => props.crossIcon});
             mask-repeat: no-repeat;
             mask-size: contain;
@@ -70,7 +70,7 @@ export const AboutMeOverlayWrapper = styled.div`
         }
 
         :hover {
-            background-color: ${props => !props.open ? props.theme.Transparent : props.theme.InternationalOrangeGoldenGateBridge};
+            background-color: ${props => !props.open ? props.theme.colorTransparent : props.theme.colorComplement};
 
             p {
                 width: 90px;
@@ -103,7 +103,7 @@ export const AboutMeOverlayWrapper = styled.div`
         transition: height 0.4s 0.2s, opacity 0.4s 0.2s, margin 0.4s 0.2s;
     }
     #logo-container {
-        background-color: ${props => !props.open ? props.theme.Transparent : props.theme.OuterSpaceCrayola66};
+        background-color: ${props => !props.open ? props.theme.colorTransparent : props.theme.colorDark66};
         width: 100%;
         display: flex;
         justify-content: center;
@@ -117,15 +117,15 @@ export const AboutMeOverlayWrapper = styled.div`
 
         @keyframes anim {
             from {
-                background-color: ${props => props.theme.Transparent}
+                background-color: ${props => props.theme.colorTransparent}
             }
             to {
-                background-color: ${props => props.theme.OuterSpaceCrayola66}
+                background-color: ${props => props.theme.colorDark66}
             }
         }
 
         svg { 
-            fill: ${props => !props.open ? props.theme.InternationalOrangeGoldenGateBridge : props.theme.ChampagnePink};
+            fill: ${props => !props.open ? props.theme.colorComplement : props.theme.colorBright};
             padding-top: ${props => !props.open ? '0px' : '30px'};
             padding-bottom: ${props => !props.open ? '0px' : '30px'};
             height: 100px;
@@ -144,17 +144,16 @@ export const AboutMeOverlayWrapper = styled.div`
     }
 
     :hover {
-        background-color: ${props => !props.open ? props.theme.InternationalOrangeGoldenGateBridge : props.theme.Skobeloff};
+        background-color: ${props => !props.open ? props.theme.colorComplement : props.theme.colorMedium};
         #logo-container {
-            background-color: ${props => !props.open ? props.theme.Transparent : props.theme.OuterSpaceCrayola};
+            background-color: ${props => !props.open ? props.theme.colorTransparent : props.theme.colorDark};
             svg {
-                fill: ${props => props.theme.ChampagnePink};
+                fill: ${props => props.theme.colorBright};
             }
         }
 
-        
         .cv-footer {
-            background-color: ${props => !props.open ? props.theme.Transparent : props.theme.OuterSpaceCrayola};
+            //background-color: ${props => !props.open ? props.theme.colorTransparent : props.theme.colorDark};
         }
         #about-me-title {
             height: ${props => !props.open ? '12px' : '0px'};

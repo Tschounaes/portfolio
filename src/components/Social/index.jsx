@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import useZustand from '../../store_zustand';
 
 
 import IconButton from '../IconButton';
@@ -14,8 +15,10 @@ const socialContent = [
 ]
 
 const Social = () => {
+    const { footerOpen } = useZustand();
+
     return (
-        <SocialContainer>
+        <SocialContainer style={{zIndex: `${footerOpen ? '580' : '380'}`}}>
              { socialContent.map((linkSet,index) => {
                         return(
                             <IconButton

@@ -13,8 +13,13 @@ const useZustand = create( (set) => {
         setNavOpen: (navOpen) => set({navOpen}),
 
         // Is the 'About Me' / CV -section open?
-        aboutOpen: window.innerWidth > 1000,
+        aboutOpen: window.location.hash === '#/' && window.innerWidth > 1024,
         setAboutOpen: (aboutOpen) => set({aboutOpen}),
+
+        //Is the 'footer' open?
+        footerOpen: false,
+        setFooterOpen: (footerOpen) => set({footerOpen}),
+
 
         // Close About Me highlighting
         closeAboutMe: false,
@@ -28,5 +33,6 @@ const useZustand = create( (set) => {
         setSearchInputs: (searchInputs) => set(state => ({searchInputs: {...state.searchInputs, ...searchInputs}})),
     })
 });
+
 
 export default useZustand;

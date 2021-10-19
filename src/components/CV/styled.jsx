@@ -22,7 +22,7 @@ export const CVWrapper = styled.div`
         align-items: center;
 
         #hi-i-am {
-            z-index: 3;
+            z-index: 430;
 
             position: ${props => !props.open ? 'static' : 'absolute'};
             width: 100%;
@@ -42,7 +42,7 @@ export const CVWrapper = styled.div`
         }
 
         #pseudonym-container {
-            z-index: 3;
+            z-index: 430;
 
             position: absolute;
             left: 1.5vw;
@@ -67,7 +67,7 @@ export const CVWrapper = styled.div`
         }
 
         #profession {
-            z-index: 4;
+            z-index: 440;
 
             position: ${props => !props.open ? 'static' : 'absolute'};
             left: ${props => props.scrollTop >= 5 ? '50%' : '0%'};
@@ -103,7 +103,7 @@ export const CVWrapper = styled.div`
         }
 
         #invisible-text {
-            z-index: 5;
+            z-index: 450;
 
             position: relative;
 
@@ -119,8 +119,8 @@ export const CVWrapper = styled.div`
         }
         
         #welcome-container {
-            --col: ${props => props.theme.InternationalOrangeGoldenGateBridge66};
-            z-index: 5;
+            --col: ${props => props.theme.colorComplement66};
+            z-index: 450;
             position: relative;
             width: 100%;
             padding: 10px 0px;
@@ -144,7 +144,7 @@ export const CVWrapper = styled.div`
 
             #welcome-text {
                 position: relative;
-                z-index: 3;
+                z-index: 430;
                 width: 64%;
                 h2 {
                     padding-left: 15px;
@@ -155,6 +155,8 @@ export const CVWrapper = styled.div`
                 }
             }
         }
+
+
 
         @media screen and (max-height: 420px) {
             #hi-i-am {
@@ -224,9 +226,8 @@ export const CVWrapper = styled.div`
         }
     }
 
-
     .cv-topic {
-        z-index: 5;
+        z-index: 450;
         position: relative;
         margin-right: 3em;
 
@@ -234,8 +235,8 @@ export const CVWrapper = styled.div`
             margin-top: 30px;
             padding: 8px 30px;
             text-transform: capitalize;
-            background-color: ${props => props.theme.ChampagnePink66};
-            color: ${props => props.theme.InternationalOrangeGoldenGateBridge};
+            background-color: ${props => props.theme.colorBright66};
+            color: ${props => props.theme.colorComplement};
             border-radius: 0px 20px 20px 0px;
             width: min-content;
 
@@ -279,14 +280,14 @@ export const CVWrapper = styled.div`
     }
 
     .cv-footer {
-        z-index: 3;
+        z-index: 430;
         position: relative;
 
         height: 160px;
         width: 100%;
         margin-top: 30px;
         margin-bottom: 160px;
-        background-color: ${props => !props.open ? props.theme.Transparent : props.theme.OuterSpaceCrayola66};
+        //background-color: ${props => !props.open ? props.theme.colorTransparent : props.theme.colorDark66};
         transition: background-color 0.4s;
     }
 

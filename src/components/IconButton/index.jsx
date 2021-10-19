@@ -5,6 +5,7 @@ import { IconButtonWrapper } from './styled';
 const IconButton = (props) => {
     const { select, setSelect } = useZustand()
     const { navOpen, setNavOpen } = useZustand()
+    const { aboutOpen, setAboutOpen } = useZustand()
 
     const history = useHistory();
 
@@ -17,14 +18,18 @@ const IconButton = (props) => {
                 setSelect(props.navIndex);
                 history.push(props.link);
             }
-        } 
-        if (props.link.slice(0,4) === 'http') {
+        } else if (props.link.slice(0,4) === 'http') {
             window.open(props.link);
-        }
-        if (props.link.split('@').length === 2) {
+        } else if (props.link.split('@').length === 2) {
             window.location = 'mailto:'+ props.link;
+        } else {
+            switch (props.link) {
+                case 'ABOUT_OPEN':
+                    return !aboutOpen ? setAboutOpen(true) : null;
+                default:
+                    console.error('case: ' + props.link + ' is not handled');
+            }
         }
-
     }
  
     return (

@@ -14,11 +14,15 @@ export const ProjectWrapper = styled.div`
     }
 
     main {
+        position: relative;
+        z-index: 220;
+
         overflow-y: scroll;
         max-width: 1024px;
         height: 100vh;
         flex-shrink: 0;
         margin-right: 120px;
+        transition: transform 0.4s;
     }
     
     .aside-box {
@@ -36,7 +40,7 @@ export const ProjectWrapper = styled.div`
         }
     }
     .project-tschounaes-player-container {
-        --col-bg-player: ${props => props.theme.InternationalOrangeGoldenGateBridge66};
+        --col-bg-player: ${props => props.theme.colorComplement66};
         width: 100%;
         background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, var(--col-bg-player) 100%);
     }
@@ -53,14 +57,26 @@ export const ProjectWrapper = styled.div`
             width: 0px;
         }
         .head-pusher {
-            height: 160px;
+            height: 160px!important;
         }
     }
+
+
     @media screen and (max-height: 420px) {
         justify-content: center;
 
         .head-pusher {
             height: 70px;
+        }
+    }
+
+    @media screen and (min-width: calc(1024px + 120px)) {
+        main {
+            transform: rotate(2.5deg) translateY(-20px);
+            height: calc(100vh + 40px);
+        }
+        .head-pusher {
+            height: 40px;
         }
     }
 

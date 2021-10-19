@@ -3,11 +3,13 @@ import React from 'react';
 import StretchTitle from '../../../components/StretchTitle';
 import TschounaesPlayer from '../../../components/TschounaesPlayer';
 import ProjectInfo from '../../../components/ProjectInfo';
+import ProjectFooterPusher from '../../../components/Footer/ProjectFooterPusher';
 import Posts from '../../../components/Posts';
 
 import { ProjectWrapper } from '../styled';
 
 import PlacempusStill from '../../../assets/images/placempus_jonas_bienz_website_still.jpg';
+import Banner from '../../../components/Banner';
 
 
 const Placempus = () => {
@@ -19,6 +21,7 @@ const Placempus = () => {
 
     return (
         <ProjectWrapper> 
+            <Banner src={videoAlt}/>
             <section className='aside-box'></section>
             <main>
                 <div className='head-pusher'></div>
@@ -37,7 +40,9 @@ const Placempus = () => {
                     <h2>Blog</h2>
                     <Posts wrapper='project' projectId={projectId}/>            
                 </section>
+                <ProjectFooterPusher/>
             </main>
+            
         </ProjectWrapper>
     )
 }

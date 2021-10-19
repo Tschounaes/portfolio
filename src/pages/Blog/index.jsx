@@ -6,7 +6,7 @@ import SearchInput from '../../components/SearchInput';
 import useZustand from '../../store_zustand';
 
 const Blog = () => {
-    const { searchInputs } = useZustand();
+    const { searchInputs, aboutOpen, footerOpen, setFooterOpen } = useZustand();
     const [scroll, setScroll] = useState(0);
     const [cacheTouch, setCacheTouch] = useState(0);
     const [colums, setColums] = useState(
@@ -56,10 +56,19 @@ const Blog = () => {
         // Calculate scroll throug blog posts
         const content = document.getElementById('column-0-effect');
         const newScroll = scroll - deltaY;
-        const scrollMax = 3 * windowHeight-content.scrollHeight;
+        const scrollMax = 3 * windowHeight - content.scrollHeight;
         newScroll > scrollMax ? 
         newScroll < 0 ? setScroll(newScroll) : setScroll(0) :
         scrollMax < 0 ? setScroll(scrollMax) : setScroll(0);
+
+        // Footer handling
+            if (!aboutOpen) {
+                if (scrollMax - scroll >= -10) {
+                    if (!footerOpen) { setFooterOpen(true) }
+                } else if (scrollMax - scroll < -10) {
+                    if (footerOpen) { setFooterOpen(false) }
+                }
+            }
 
         // Hide elements if they are less than 50% on the screen
         Array.from(document.getElementsByClassName('blog')).forEach(entry => {
@@ -76,10 +85,9 @@ const Blog = () => {
         const blogTitle = Array.from(document.getElementsByClassName('blog-title-container'))[0];
         blogTitle.style.opacity = scroll <= -200 ? '0' : '1';
        
-    },[scroll, cacheTouch])
+    },[scroll, cacheTouch, aboutOpen, footerOpen, setFooterOpen]);
 
     useEffect(() => {
-        //handleBlogScroll({deltaY: 0});
         // Handle scrolling properties with adjusted window height
         let timeoutId = null;
         const resizeListener = () => {
