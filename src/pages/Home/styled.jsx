@@ -15,13 +15,17 @@ const HomeWrapper = styled.main`
     .suggestion {
         position: absolute;
         z-index: 50;
-        left: 20%;
-        top: 20%;
+        left: 15%;
+        bottom: 50%;
         display: flex;
         align-items: center;
         height: min-content;
+        max-width: 60%;
+        min-width: 350px;
         cursor: pointer;
         background-color: ${props => props.theme.colorMedium};
+        -webkit-box-shadow: 0px 0px 40px 10px rgba(0,0,0,0.5);
+        box-shadow:  0px 0px 40px 10px rgba(0,0,0,0.5);
         border-radius: calc(25px + 12px);
         padding: 12px;
         transition: background-color 0.4s;

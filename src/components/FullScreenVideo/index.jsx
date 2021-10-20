@@ -39,9 +39,12 @@ const FullScreenVideo = () => {
             onMouseOut={() => setCloseAboutMe(false)}
             open={aboutOpen}>
             {!loaded &&
-            <div style={{position: 'fixed'}}>
-                <Slideshow srcs={sliedeshowImgs}/>
-            </div>
+                <div style={{position: 'absolute', top: '0px', left:'0px'}}>
+                <Slideshow 
+                    srcs={sliedeshowImgs} 
+                    height={fillDisplay(innerSize, 1920/1080).height}
+                    speed={3250}/>
+                </div>
             }
             <video
                 onPlay={videoLoading}

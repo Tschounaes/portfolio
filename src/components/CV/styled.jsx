@@ -9,8 +9,8 @@ export const CVWrapper = styled.div`
     max-width: ${props => !props.open ? '0px' : '1024px'};
     width: ${props => !props.open ? '0vh' : '100%'};
     opacity: ${props => !props.open ? '0' : '1'};
-    transition: ${props => !props.open ? 
-        'height 1.2s 0.4s, width 1.2s 0.4s, max-width 1.2s 0.4s, opacity 0s' : 
+    transition: ${props => !props.open ?
+        'height 1.2s 0.4s, width 1.2s 0.4s, max-width 1.2s 0.4s, opacity 0s' :
         'height 1.2s, width 1.2s, max-width 1.2s, opacity 0.4s 1.2s'};
     overflow-y: scroll;
 
@@ -37,7 +37,7 @@ export const CVWrapper = styled.div`
 
             padding-bottom: 6px;
             
-            opacity: ${props => props.scrollTop >= 5 ? 0 : 1};
+            opacity: ${props => props.switch ? 0 : 1};
             transition: opacity 0.4s 0.1s;
         }
 
@@ -48,12 +48,11 @@ export const CVWrapper = styled.div`
             left: 1.5vw;
             top: 240px;
 
-            width: ${props => !props.open ? '0vw' : props.scrollTop >= 8 ?  '0vw' : '97vw'};
+            width: ${props => !props.open ? '0vw' : '97vw'};
             max-width: 1500px;
-            aspect-ratio: 1247 / 168;
 
-
-            mask: url(${PseudonymMask});
+            -webkit-mask-image: url(${PseudonymMask});
+            mask-image: url(${PseudonymMask});
             -webkit-mask-repeat: no-repeat;
             mask-repeat: no-repeat;
             -webkit-mask-size: contain;
@@ -62,30 +61,31 @@ export const CVWrapper = styled.div`
             mask-position: center;
             backdrop-filter: invert(100%);
             
-            transform: ${props => `translate(${props.scrollTop >= 5 ? 120 : 0}vw)`};   
-            transition: transform 2s 0.4s, width 0s ${props => props.scrollTop >= 8 ? '2.4s' : '0s'}; 
+            transform: ${props => `translate(${props.switch ? 120 : 0}vw)`};   
+            transition: transform 2s 0.4s; 
         }
 
         #profession {
             z-index: 440;
 
             position: ${props => !props.open ? 'static' : 'absolute'};
-            left: ${props => props.scrollTop >= 5 ? '50%' : '0%'};
-            top: ${props => props.scrollTop >= 5 ? '50vh': (props.bottomLine-6)+'px'};
+            left: ${props => props.switch ? '50%' : '0%'};
             width: 100%;
             display: flex;
             justify-content: center;
             align-items: center;
           
             div {
-                width: ${props => props.scrollTop >= 5 ? '100vh' : '100%'};
+                width: ${props => props.switch ? '100vh' : '100%'};
                 margin: 0px 15px;
                 display: flex;
                 justify-content: space-around;
                 font-size: ${props => props.theme.XL};
                 white-space: nowrap;
                 text-transform: uppercase;
-                transition: width 1.5s 1.6s;
+                transition: ${props => props.switch ? 
+                    'transform 0.8s 0.8s, width 1.2s 1.4s' : 
+                    'transform 0.8s 0.0s, width 1.2s 0s' };
 
                 h1 {
                     min-width: 1%;
@@ -95,11 +95,14 @@ export const CVWrapper = styled.div`
             }
 
             transform: ${props => `
-                translateX(${props.scrollTop >= 5 ? -27 : -0}px)
-                rotate(${props.scrollTop >= 5 ? 90 : 0}deg)
-                scale(${props.scrollTop >= 5 ? 60 : 100}%)
-                `};
-            transition: transform 0.8s 0.8s, left 1.2s 1.4s, top 1.2s 1.4s;
+                translateX(${props.switch ? -27 : -0}px)
+                rotate(${props.switch ? 90 : 0}deg)
+                scale(${props.switch ? 60 : 100}%)
+                ` };
+
+            transition: ${props => props.switch ? 
+                'transform 0.8s 0.8s, left 1.2s 1.4s, top 1.2s 1.4s' :
+                'transform 0.8s 0.0s, left 1.2s 0s, top 1.2s 0s' };
         }
 
         #invisible-text {
@@ -175,7 +178,7 @@ export const CVWrapper = styled.div`
             }
         }
 
-        @media screen and (max-width: 500px) {  
+        @media screen and (max-width: 512px) {  
             #hi-i-am { 
                 font-size: 28px;
             }
@@ -184,8 +187,7 @@ export const CVWrapper = styled.div`
             }
             #profession {
                 div{
-                    
-                    transform: ${props => `translateX(${props.scrollTop >= 5 ? -20 : -0}px)`};
+                    transform: ${props => `translateX(${props.switch ? -20 : -0}px)`};
                     h1{
                         font-size: 28px;  
                     }
@@ -207,7 +209,7 @@ export const CVWrapper = styled.div`
             }
         }
 
-        @media screen and (max-width: 500px) and (min-height: 600px) {
+        @media screen and (max-width: 512px) and (min-height: 600px) {
             #hi-i-am {
                 top: 220px;
             }
@@ -216,7 +218,7 @@ export const CVWrapper = styled.div`
             }
         }
 
-        @media screen and (min-width: 500px) and (max-width: 1024px) and (min-height: 500px){
+        @media screen and (min-width: 512px) and (max-width: 1024px) and (min-height: 512px){
             #hi-i-am {
                 top: 250px;
             }

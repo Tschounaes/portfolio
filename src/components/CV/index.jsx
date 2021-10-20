@@ -1,4 +1,9 @@
-import React, { useEffect, useState, useRef, useCallback } from 'react';
+import React, { 
+    useEffect, 
+    useState, 
+    useRef, 
+    useCallback } from 'react';
+
 import useZustand from '../../store_zustand';
 
 import { csv } from 'd3-fetch';
@@ -12,6 +17,7 @@ import sortByDate from '../../helpers/sortByDate';
 import { CVWrapper } from './styled';
 
 const CV = (props) => {
+    const profession = useRef();
     // getting the size of the image for scaling welcome message
     const image = useRef();
     
@@ -21,7 +27,7 @@ const CV = (props) => {
 
     //bottomline of pseudo-container
     const pseudo = useRef();
-    const [ bottomLine, setBottomLine] = useState()
+    const [ bottomLine, setBottomLine] = useState();
 
     // data to fill in cv
     const [ CVData, setCVData ] = useState();
@@ -64,8 +70,18 @@ const CV = (props) => {
     };
 
     const getRefs = () => {
-        setBottomLine(pseudo.current.getBoundingClientRect().bottom);
-        setSmallScreen(container.current.getBoundingClientRect().width < 800)
+        let PseudoContainerRect = pseudo.current.getBoundingClientRect();
+
+        // set height of the div element containing the pseudonym
+        const PseudoCalcHeight = `${PseudoContainerRect.width / (1247 / 168)}px`;
+        pseudo.current.style.setProperty('height', PseudoCalcHeight, "important");
+
+        // set the position of the profession title element
+        PseudoContainerRect = pseudo.current.getBoundingClientRect();
+        setBottomLine(PseudoContainerRect.bottom);
+
+        // handle date formatting depending on window size
+        setSmallScreen(PseudoContainerRect.width < 780)
 
     };
 
@@ -77,25 +93,25 @@ const CV = (props) => {
             } else if (bottom > 10) {
                 if (footerOpen) {setFooterOpen(false)} else return null;
             } else return null;  
-        } else return null;
-             
+        } else return null;      
     },[footerOpen, setFooterOpen, aboutOpen]);
 
     useEffect(() => {
         getCVData();
         getWelcomeData();   
+
         let timeoutId = null;
         const resizeListener = () => {
             clearTimeout(timeoutId);
             timeoutId = setTimeout(() => getRefs(), 150);
         }
-        window.addEventListener('resize', resizeListener)
+
+        window.addEventListener('resize', resizeListener);
         return () => window.removeEventListener('resize', resizeListener);
     },[]);
 
-    useEffect(() => {
-        calcFooter();
-    },[aboutOpen, calcFooter])
+    useEffect(() => calcFooter(),[aboutOpen, calcFooter]);
+    useEffect(() => getRefs(),[]);
 
     return (
         <CVWrapper 
@@ -104,14 +120,18 @@ const CV = (props) => {
             onTransitionEnd={getRefs}
             /* attributes from refs */
             open={props.open} 
-            scrollTop={scrollTop}
-            bottomLine={bottomLine}
+            switch={scrollTop >= 5 }
             >
 
             <article id='introduction'>
                 <p id='hi-i-am'>Hi, I'm</p>   
                 <div id='pseudonym-container' ref= { pseudo } ></div>
-                <div id='profession'>
+                <div 
+                    id='profession' 
+                    style={
+                        { 
+                            top: `${scrollTop >= 5 ? '50vh' : ( bottomLine - 6 )+'px'}`,  
+                        }}>
                     <div>
                     { welcomeData.profession &&
                         welcomeData.profession.split('').map((letter,index) => {

@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
+
 export const IconButtonWrapper = styled.button`
     display: flex;
     flex-wrap: nowrap;
@@ -32,15 +33,15 @@ export const IconButtonWrapper = styled.button`
     }
 
     .svg-container {
-        aspect-ratio: 1 / 1;
-        min-height: ${props => props.theme.M};
-        background-color: ${props => props.theme.colorBright};
-        
+        height: ${props => props.theme.M};
+        width: ${props => props.theme.M};
 
-        -webkit-mask-image: url(${props => props.icon}); 
-        mask-image: url(${props => props.icon}); 
-        -webkit-mask: url(${props => props.icon});
-        mask: url(${props => props.icon});
+        background-color: ${props => props.theme.colorBright};
+       
+        -webkit-mask-image: ${props => `url(${props.icon})`}; 
+        mask-image: ${props => `url(${props.icon})`}; 
+        -webkit-mask: ${props => `url(${props.icon})`};
+        mask: ${props => `url(${props.icon})`};
 
         mask-repeat: no-repeat;
         -webkit-mask-repeat: no-repeat;
