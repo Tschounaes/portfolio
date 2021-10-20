@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.js": "/portfolio/static/js/main.4c3e7e97.chunk.js",
-    "main.js.map": "/portfolio/static/js/main.4c3e7e97.chunk.js.map",
+    "main.js": "/portfolio/static/js/main.3f5a8466.chunk.js",
+    "main.js.map": "/portfolio/static/js/main.3f5a8466.chunk.js.map",
     "runtime-main.js": "/portfolio/static/js/runtime-main.7ebf164f.js",
     "runtime-main.js.map": "/portfolio/static/js/runtime-main.7ebf164f.js.map",
     "static/js/2.8805c950.chunk.js": "/portfolio/static/js/2.8805c950.chunk.js",
@@ -23,7 +23,7 @@
     "static/media/genius_icon.494179d2.svg": "/portfolio/static/media/genius_icon.494179d2.svg",
     "static/media/home_icon.04a4cee3.svg": "/portfolio/static/media/home_icon.04a4cee3.svg",
     "static/media/instagram_icon.9c01e699.svg": "/portfolio/static/media/instagram_icon.9c01e699.svg",
-    "static/media/linkedin_logo.780ad17d.svg": "/portfolio/static/media/linkedin_logo.780ad17d.svg",
+    "static/media/linkedin_logo.6515a2f7.svg": "/portfolio/static/media/linkedin_logo.6515a2f7.svg",
     "static/media/mail_icon.7b7e4d5f.svg": "/portfolio/static/media/mail_icon.7b7e4d5f.svg",
     "static/media/months.4a036bd0.csv": "/portfolio/static/media/months.4a036bd0.csv",
     "static/media/pause_icon.535b5b1a.svg": "/portfolio/static/media/pause_icon.535b5b1a.svg",
@@ -51,6 +51,6 @@
   "entrypoints": [
     "static/js/runtime-main.7ebf164f.js",
     "static/js/2.8805c950.chunk.js",
-    "static/js/main.4c3e7e97.chunk.js"
+    "static/js/main.3f5a8466.chunk.js"
   ]
 }
