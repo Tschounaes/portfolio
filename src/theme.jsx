@@ -101,6 +101,8 @@ export const GlobalStyle = createGlobalStyle`
         color: ${props => props.theme.colorBright};
 
         svg {
+            fill: rgba(0,0,0,1);
+
             path{
                 fill: inherit;
             }

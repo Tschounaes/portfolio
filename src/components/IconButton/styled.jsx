@@ -35,13 +35,21 @@ export const IconButtonWrapper = styled.button`
         aspect-ratio: 1 / 1;
         min-height: ${props => props.theme.M};
         background-color: ${props => props.theme.colorBright};
-        mask: url(${props => props.icon}); 
-        -webkit-mask-repeat: no-repeat;
+        
+
+        -webkit-mask-image: url(${props => props.icon}); 
+        mask-image: url(${props => props.icon}); 
+        -webkit-mask: url(${props => props.icon});
+        mask: url(${props => props.icon});
+
         mask-repeat: no-repeat;
-        -webkit-mask-size: contain;
+        -webkit-mask-repeat: no-repeat;
+
         mask-size: contain;
-        -webkit-mask-position: center;
+        -webkit-mask-size: contain;
+ 
         mask-position: center;
+        -webkit-mask-position: center;
     }
 
     :hover {

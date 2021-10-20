@@ -24,7 +24,7 @@ const ProjectFooterPusher = ({ height }) => {
         }
 
         return () => window.removeEventListener('wheel', measureTop);
-    },[ footerOpen, setFooterOpen, pushHeight, aboutOpen ])
+    },[ footerOpen, setFooterOpen, pushHeight, aboutOpen ]);
 
     return (
         <div 
