@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.js": "/portfolio/static/js/main.37716298.chunk.js",
-    "main.js.map": "/portfolio/static/js/main.37716298.chunk.js.map",
+    "main.js": "/portfolio/static/js/main.e762a1c5.chunk.js",
+    "main.js.map": "/portfolio/static/js/main.e762a1c5.chunk.js.map",
     "runtime-main.js": "/portfolio/static/js/runtime-main.7ebf164f.js",
     "runtime-main.js.map": "/portfolio/static/js/runtime-main.7ebf164f.js.map",
-    "static/js/2.81729c78.chunk.js": "/portfolio/static/js/2.81729c78.chunk.js",
-    "static/js/2.81729c78.chunk.js.map": "/portfolio/static/js/2.81729c78.chunk.js.map",
+    "static/js/2.8805c950.chunk.js": "/portfolio/static/js/2.8805c950.chunk.js",
+    "static/js/2.8805c950.chunk.js.map": "/portfolio/static/js/2.8805c950.chunk.js.map",
     "index.html": "/portfolio/index.html",
-    "static/js/2.81729c78.chunk.js.LICENSE.txt": "/portfolio/static/js/2.81729c78.chunk.js.LICENSE.txt",
+    "static/js/2.8805c950.chunk.js.LICENSE.txt": "/portfolio/static/js/2.8805c950.chunk.js.LICENSE.txt",
     "static/media/audio_off.9f04e1a8.svg": "/portfolio/static/media/audio_off.9f04e1a8.svg",
     "static/media/audio_on.45bb107a.svg": "/portfolio/static/media/audio_on.45bb107a.svg",
     "static/media/blog.b8968fa2.csv": "/portfolio/static/media/blog.b8968fa2.csv",
@@ -50,7 +50,7 @@
   },
   "entrypoints": [
     "static/js/runtime-main.7ebf164f.js",
-    "static/js/2.81729c78.chunk.js",
-    "static/js/main.37716298.chunk.js"
+    "static/js/2.8805c950.chunk.js",
+    "static/js/main.e762a1c5.chunk.js"
   ]
 }
