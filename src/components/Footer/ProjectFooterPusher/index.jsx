@@ -1,6 +1,5 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import useZustand from '../../../store_zustand';
-import { useEffect } from 'react/cjs/react.development';
 
 const ProjectFooterPusher = ({ height }) => {
     const pushHeight = height ? height : 120;
@@ -9,7 +8,6 @@ const ProjectFooterPusher = ({ height }) => {
 
     useEffect(() => {
         const measureTop = () => {
-            try {
             const windowHeight = window.innerHeight;
             const top = pusher.current.getBoundingClientRect().top;
             const diff = windowHeight - top;
@@ -18,9 +16,6 @@ const ProjectFooterPusher = ({ height }) => {
             } else if (diff < pushHeight - 10) {
                 if (footerOpen === true) { setFooterOpen(false) } else return null;
             } else return null;
-            } catch {
-                console.error(`Muahahahaha!`);
-            }
         }
 
         if (!aboutOpen) {
@@ -28,11 +23,8 @@ const ProjectFooterPusher = ({ height }) => {
             window.addEventListener('wheel', measureTop);
         }
 
-        return () => {
-            window.removeEventListener('wheel', measureTop)
-        };
+        return () => window.removeEventListener('wheel', measureTop);
     },[ footerOpen, setFooterOpen, pushHeight, aboutOpen ])
-
 
     return (
         <div 
