@@ -9,6 +9,7 @@ const ProjectFooterPusher = ({ height }) => {
 
     useEffect(() => {
         const measureTop = () => {
+            try {
             const windowHeight = window.innerHeight;
             const top = pusher.current.getBoundingClientRect().top;
             const diff = windowHeight - top;
@@ -17,6 +18,9 @@ const ProjectFooterPusher = ({ height }) => {
             } else if (diff < pushHeight - 10) {
                 if (footerOpen === true) { setFooterOpen(false) } else return null;
             } else return null;
+            } catch {
+                console.error(`Muahahahaha!`);
+            }
         }
 
         if (!aboutOpen) {
