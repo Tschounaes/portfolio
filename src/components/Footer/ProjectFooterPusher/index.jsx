@@ -21,6 +21,7 @@ const ProjectFooterPusher = ({ height }) => {
         if (!aboutOpen) {
             measureTop();
             window.addEventListener('wheel', measureTop);
+            window.addEventListener('touchend', measureTop);
         }
 
         return () => window.removeEventListener('wheel', measureTop);

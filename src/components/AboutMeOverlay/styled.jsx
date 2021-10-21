@@ -50,13 +50,21 @@ export const AboutMeOverlayWrapper = styled.div`
         transition: background-color 0.4s;
 
         .cross-container {
-            height: 60%;
-            aspect-ratio: 1 / 1;
+            height: 16px;
+            width: 16px;
             background-color: ${props => !props.open ? props.theme.colorTransparent : props.theme.colorBright};
-            mask: url(${props => props.crossIcon});
+
+            mask-image: url(${props => props.crossIcon});
+            -webkit-mask-image: url(${props => props.crossIcon});
+
             mask-repeat: no-repeat;
-            mask-size: contain;
+            -webkit-mask-repeat: no-repeat;
+
+            mask-size: 60%;
+            -webkit-mask-size: 60%;
+
             mask-position: center;
+            -webkit-mask-position: center;
         }
 
         p {

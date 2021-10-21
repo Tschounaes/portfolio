@@ -36,7 +36,9 @@ const Slideshow = ({ srcs, speed, height}) => {
                                 height: `${height}px`
                             }}
                             src={src} 
-                            key={'slide_' + index}/>)
+                            key={'slide_' + index}
+                            alt={src}/>
+                            )
             }  
         </SlideshowWrapper>
     )

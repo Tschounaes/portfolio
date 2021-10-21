@@ -18,7 +18,7 @@ const Social = () => {
     const { footerOpen } = useZustand();
 
     return (
-        <SocialContainer style={{zIndex: `${footerOpen ? '580' : '380'}`}}>
+        <SocialContainer footer={ footerOpen } >
              { socialContent.map((linkSet,index) => {
                         return(
                             <IconButton

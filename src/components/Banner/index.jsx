@@ -25,6 +25,7 @@ const BannerWrapper = styled.div`
         min-width: 1024px;
         aspect-ratio: 16 / 9;
         filter: brightness(180%);
+        -webkit-filter: brightness(180%);
         
     }
 

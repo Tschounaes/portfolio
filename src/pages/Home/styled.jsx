@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 const HomeWrapper = styled.main`
+    overflow: hidden;
 
     .appear {
         animation-name: appear;
@@ -21,7 +22,8 @@ const HomeWrapper = styled.main`
         align-items: center;
         height: min-content;
         max-width: 60%;
-        min-width: 350px;
+        min-width: calc(240px - 24px);
+      
         cursor: pointer;
         background-color: ${props => props.theme.colorMedium};
         -webkit-box-shadow: 0px 0px 40px 10px rgba(0,0,0,0.5);
@@ -41,6 +43,7 @@ const HomeWrapper = styled.main`
             
             overflow: visible;
         }
+
         p {
             width: 200px;
         }
@@ -48,26 +51,24 @@ const HomeWrapper = styled.main`
         :hover {
             background-color: ${props => props.theme.colorComplement};
         }
-    
 
-    @keyframes appear {
-        from {
-            opacity: 0;
+        @keyframes appear {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
         }
-        to {
-            opacity: 1;
-        }
-    }
 
-    @keyframes disappear {
-        from {
-            opacity: 1;
+        @keyframes disappear {
+            from {
+                opacity: 1;
+            }
+            to {
+                opacity: 0;
+            }
         }
-        to {
-            opacity: 0;
-        }
-    }
-
     }
 `
 

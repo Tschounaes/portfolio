@@ -5,7 +5,9 @@ export const FooterWrapper = styled.footer`
     
     position: fixed;
     width: 100%;
+    height: 220px;
     overflow-y: scroll;
+    overflow-x: hidden;
     bottom: 0px;
     display: flex;
     flex-direction: column;
@@ -18,7 +20,7 @@ export const FooterWrapper = styled.footer`
     .brand {
         display: flex;
         align-items: center;
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
 
         svg {
             padding: 12px;
@@ -36,9 +38,16 @@ export const FooterWrapper = styled.footer`
         }
     }
 
+    p {
+        text-align: center;
+        text-justify: center;
+        -ms-text-justify: center;
+    }
+
     .dev-note {
             margin-bottom: 2em;
             margin-top: 0.5em;
+
             a {
                 color: ${props => props.theme.colorMedium};
             }
@@ -59,6 +68,32 @@ export const FooterWrapper = styled.footer`
         }
         to {
             height: 0px;
+        }
+    }
+
+    @media screen and (max-width: 550px) {
+        p{
+            transform: translateY(-12px);
+        }
+        .brand {
+            svg {
+                padding: 6px;
+            }
+            svg:last-child {
+                height: 30px;
+            }
+        }
+    }
+
+    @media screen and (max-height: 420px) {
+        height: 160px;
+        p{
+            transform: translateY(-8px);
+        }
+        .brand {
+            svg:first-child {
+                height: 62px;   
+            }
         }
     }
 `

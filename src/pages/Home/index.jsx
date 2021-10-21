@@ -70,7 +70,7 @@ const Home = (props) => {
     return (
         <HomeWrapper>
             <FullScreenVideo />
-            { suggestion &&
+            { suggestion && window.innerWidth >= 320 &&
             <> 
             { renderSwitch ?
                 <div

@@ -17,7 +17,6 @@ import sortByDate from '../../helpers/sortByDate';
 import { CVWrapper } from './styled';
 
 const CV = (props) => {
-    const profession = useRef();
     // getting the size of the image for scaling welcome message
     const image = useRef();
     

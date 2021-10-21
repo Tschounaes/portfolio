@@ -86,7 +86,8 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     #root {
-        overflow: hidden;   
+        overflow: hidden;
+        background-color: ${props => props.theme.colorDark};
     }
     
     body {

@@ -2,7 +2,9 @@ import styled from "styled-components";
 
 export const SocialContainer = styled.div`
     position: fixed;
+    z-index: ${props => props.footer ? '580' : '380'};
     bottom: 2em;
+    right: 3em;
     display: flex;
     justify-content: flex-end;
 
@@ -10,10 +12,15 @@ export const SocialContainer = styled.div`
         left: 3em;
     }
 
-    @media screen and (min-height: 320px) {
-        right: 3em;
+    @media screen and (max-width: 1024px) {
+        bottom: ${props => props.footer ? 'calc(2em + 220px)' : '2em'};
 
+        @media screen and (max-height: 420px) {
+            bottom: ${props => props.footer ? 'calc(2em + 160px)' : '2em'};
+        }
     }
+
+    
 
     .over-write-button {
         position: static;
