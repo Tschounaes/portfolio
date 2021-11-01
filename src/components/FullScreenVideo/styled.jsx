@@ -9,4 +9,10 @@ export const FullScreenVideoWrapper = styled.div`
 
     cursor: ${props => props.open ? 'pointer' : 'default'};
     transition: all 0.4s;
+
+    * {
+        position: absolute;
+        left: 0px;
+        top: 0px;
+    }
 `

@@ -45,7 +45,7 @@ const FullScreenVideo = () => {
                 height={fillDisplay(innerSize, 1920/1080).height}
                 speed={3250}/>
             }
-            <video
+             <video
                 onPlay={videoLoading}
                 height={fillDisplay(innerSize, 1920/1080).height}
                 type='video/mp4'
