@@ -44,6 +44,9 @@ export const CVWrapper = styled.div`
         #pseudonym-container {
             z-index: 430;
 
+            backdrop-filter: invert(100%); 
+            -webkit-backdrop-filter: invert(100%);
+
             position: absolute;
             left: 1.5vw;
             top: 240px;
@@ -59,11 +62,11 @@ export const CVWrapper = styled.div`
             mask-size: contain;
             -webkit-mask-position: center;
             mask-position: center;
-            backdrop-filter: invert(100%);
             
             transform: ${props => `translate(${props.switch ? 120 : 0}vw)`};   
-            transition: transform 2s 0.4s; 
+            transition: transform 2s 0.4s;
         }
+
 
         #profession {
             z-index: 440;
@@ -94,16 +97,36 @@ export const CVWrapper = styled.div`
                 }
             }
 
-            transform: ${props => `
+            --transforms-here: ${props => `
                 translateX(${props.switch ? -27 : -0}px)
                 rotate(${props.switch ? 90 : 0}deg)
                 scale(${props.switch ? 60 : 100}%)
                 ` };
 
+            transform: var(--transforms-here);
+            -webkit-transform: var(--transforms-here);
+            -moz-transform: var(--transforms-here);
+            -o-transform: var(--transforms-here);
+            -ms-transform: var(--transforms-here);
+
+
+            translate: ${props => props.switch ? '-27px' : 'px'} 0px;
+            rotate: ${props => props.switch ? '90deg' : '0deg'};
+            scale: ${props => props.switch ? 0.6 : 1.0};
+
+            @media screen {
+                @supports (-moz-transform: var(--transforms-here)) {
+                    translate: none;
+                    rotate: none;
+                    scale: none;
+                }
+            }
+            
+
             transition: ${props => props.switch ? 
-                'transform 0.8s 0.8s, left 1.2s 1.4s, top 1.2s 1.4s' :
-                'transform 0.8s 0.0s, left 1.2s 0s, top 1.2s 0s' };
-        }
+                'translate 0.8s 0.8s, rotate 0.8s 0.8s, scale 0.8s 0.8s, transform 0.8s 0.8s, left 1.2s 1.4s, top 1.2s 1.4s' :
+                'translate 0.8s 0.0s, rotate 0.8s 0.0s, scale 0.8s 0.0s, transform 0.8s 0.0s, left 1.2s 0s, top 1.2s 0s' };
+            }
 
         #invisible-text {
             z-index: 450;

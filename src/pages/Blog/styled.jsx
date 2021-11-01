@@ -6,10 +6,11 @@ export const BlogWrapper = styled.main`
     width: 100%;
     max-width: 1200px;
     height: 100vh;
-    overflow: hidden;
+    overflow-Y: scroll;
 
     .blog-title-container {
-        width: 33%;
+        position: fixed;
+        z-index: 205;
         padding-top: 0px;
         transition: all 0.4s;
         display: flex;

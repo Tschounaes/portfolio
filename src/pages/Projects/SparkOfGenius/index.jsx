@@ -7,6 +7,7 @@ import ProjectFooterPusher from '../../../components/Footer/ProjectFooterPusher'
 
 import { ProjectWrapper } from '../styled';
 import Banner from '../../../components/Banner';
+import useRootOverflow from '../../../hooks/useRootOverflow';
 
 import SparkStill from '../../../assets/images/sparkofgenius_jonas_bienz_website_still.png';
 
@@ -17,11 +18,13 @@ const SparkOfGenius = () => {
      const videoUrl = 'https://www.dropbox.com/s/bbrfodlife8f9d4/sparkofgenius_jonas_bienz_website.mp4?raw=1';
      const videoAlt = SparkStill;
 
+     const urlBar = useRootOverflow();
+
      return (
          <ProjectWrapper>
             <Banner src={videoAlt}/>
             <section className='aside-box'></section>
-            <main>
+            <main style={{ overflowY: `${urlBar <= 5 && urlBar !== null ? 'scroll' : 'hidden'}`}}>
             <div className='head-pusher'></div>
             <StretchTitle 
                 title={projectTitle}

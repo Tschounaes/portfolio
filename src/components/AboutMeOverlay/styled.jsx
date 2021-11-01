@@ -163,6 +163,7 @@ export const AboutMeOverlayWrapper = styled.div`
         .cv-footer {
             //background-color: ${props => !props.open ? props.theme.colorTransparent : props.theme.colorDark};
         }
+        
         #about-me-title {
             height: ${props => !props.open ? '12px' : '0px'};
             margin-top: ${props => !props.open ? '6px' : '0px'};

@@ -6,6 +6,8 @@ import React, {
 
 import useZustand from '../../store_zustand';
 
+import useRootOverflow from '../../hooks/useRootOverflow';
+
 import { csv } from 'd3-fetch';
 
 import CVtable from '../../assets/tabels/cv.csv';
@@ -32,11 +34,13 @@ const CV = (props) => {
     const [ CVData, setCVData ] = useState();
     const [ welcomeData, setWelcomeData ] = useState({});
     const [ types, setTypes ] = useState([]);
-    const [smallScreen, setSmallScreen] = useState(false);
+    const [ smallScreen, setSmallScreen ] = useState(false);
     const months = useMonths();
 
     // footer handling
     const { footerOpen, setFooterOpen, aboutOpen } = useZustand();
+
+    const urlBar = useRootOverflow();
 
     const handleScroll = () => {
         setScrollTop(container.current.scrollTop);
@@ -68,11 +72,12 @@ const CV = (props) => {
         });
     };
 
-    const getRefs = () => {
+    const getRefs = (e) => {
         let PseudoContainerRect = pseudo.current.getBoundingClientRect();
 
         // set height of the div element containing the pseudonym
         const PseudoCalcHeight = `${PseudoContainerRect.width / (1247 / 168)}px`;
+
         pseudo.current.style.setProperty('height', PseudoCalcHeight, "important");
 
         // set the position of the profession title element
@@ -80,8 +85,7 @@ const CV = (props) => {
         setBottomLine(PseudoContainerRect.bottom);
 
         // handle date formatting depending on window size
-        setSmallScreen(PseudoContainerRect.width < 780)
-
+        setSmallScreen(PseudoContainerRect.width < 780);       
     };
 
     const calcFooter = useCallback(() => {
@@ -97,7 +101,7 @@ const CV = (props) => {
 
     useEffect(() => {
         getCVData();
-        getWelcomeData();   
+        getWelcomeData(); 
 
         let timeoutId = null;
         const resizeListener = () => {
@@ -110,25 +114,41 @@ const CV = (props) => {
     },[]);
 
     useEffect(() => calcFooter(),[aboutOpen, calcFooter]);
+
     useEffect(() => getRefs(),[]);
 
+    useEffect(() => {
+        const handleSafariBackdropBug = () => {   
+            // fix safari backdrop-filter bug
+            pseudo.current.style.webkitBackdropFilter = 'none';
+            setTimeout(() => {
+                pseudo.current.style.webkitBackdropFilter = 'invert(100%)';
+            }, 1)
+        }
+        return aboutOpen && scrollTop <= 5 ? handleSafariBackdropBug() : null;
+    })
+  
     return (
         <CVWrapper 
             ref={container}
             onScroll={handleScroll}
             onTransitionEnd={getRefs}
+            style={{ overflowY: `${urlBar <= 5 && urlBar !== null ? 'scroll' : 'hidden'}`}}
             /* attributes from refs */
             open={props.open} 
             switch={scrollTop >= 5 }
             >
 
-            <article id='introduction'>
+            <article
+                id='introduction'>
                 <p id='hi-i-am'>Hi, I'm</p>   
-                <div id='pseudonym-container' ref= { pseudo } ></div>
+                <div
+                    id= 'pseudonym-container' 
+                    ref= { pseudo } 
+                    ></div>
                 <div 
                     id='profession' 
-                    style={
-                        { 
+                    style={{ 
                             top: `${scrollTop >= 5 ? '50vh' : ( bottomLine - 6 )+'px'}`,  
                         }}>
                     <div>
@@ -142,7 +162,7 @@ const CV = (props) => {
                 </div>
                 <h1 id='invisible-text'>{welcomeData.pseudonym}</h1>
                 
-                <div id={'welcome-container'}>
+                <div id='welcome-container'>
                     <div id='welcome-text'>
                         <h2>{`${welcomeData.firstName} ${welcomeData.secondName} ${welcomeData.lastName}`}</h2>
                         <p>{welcomeData.introduction}</p>

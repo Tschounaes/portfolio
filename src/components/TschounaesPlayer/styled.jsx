@@ -216,6 +216,9 @@ export const TschounaesPlayerWrapper = styled.div`
     }
 
     @media screen and (min-aspect-ratio: 16/9) {
+        --color-here: ${props => props.theme.colorComplement66};
+        background: linear-gradient(to top, var(--color-here) 0%, transparent 100%);
+        
         :fullscreen {
             .tschounaes-player-gui-container {
                 height: 100vh;

@@ -91,13 +91,9 @@ export const GlobalStyle = createGlobalStyle`
     }
     
     body {
-        display: fixed;
-        width: 100vw;
-        height: 100%;
         margin: 0px;
         padding: 0px;
         background-color: ${props => props.theme.colorDark};
-        overflow: hidden;
         font-family: OpenSans, Roboto, sans-serif;
         color: ${props => props.theme.colorBright};
 

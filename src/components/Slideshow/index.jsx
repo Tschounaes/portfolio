@@ -2,13 +2,15 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
 const SlideshowWrapper = styled.div`
+    position: relative;
+    z-index: 15;
+    overflow: hidden;
+    width: 100vw;
+    height: ${props => `${props.height}px`};
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative;
-    width: 100vw;
-    height: 100vh;
-
+    
     img {
         transition: opacity 0.4s;
     }
@@ -26,7 +28,7 @@ const Slideshow = ({ srcs, speed, height}) => {
 
     
     return (
-        <SlideshowWrapper> 
+        <SlideshowWrapper height={height}> 
             {
                 srcs && srcs.map((src, index) => 
                         <img 

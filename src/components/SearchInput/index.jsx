@@ -30,6 +30,12 @@ const SearchInput = ({ inputId }) => {
         }
     }
 
+    const handleEnter = (e) => {
+        if(e.key === 'Enter') {
+            e.target.blur();
+        }
+    }
+
     useEffect(() => {
         let dotTimer = window.setTimeout(() => {
             setDots((dots+1)%3);
@@ -51,7 +57,13 @@ const SearchInput = ({ inputId }) => {
                     <p>{'Search' + (dots === 0 ? '.' : dots === 1 ? '..' : '...')}</p>
                 }
             </div>
-            <input type='text' value={ searchInputs[inputId] ? searchInputs[inputId] : '' } onChange={handleChange} onFocus={handleFocus} onBlur={handleFocus}/>
+            <input 
+                type='text' 
+                value={ searchInputs[inputId] ? searchInputs[inputId] : '' } 
+                onChange={handleChange} 
+                onFocus={handleFocus} 
+                onBlur={handleFocus}
+                onKeyPress={handleEnter}/>
             { render &&
             <div 
                 className='clear-button'

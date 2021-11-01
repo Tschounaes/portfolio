@@ -10,6 +10,7 @@ import { ProjectWrapper } from '../styled';
 
 import PlacempusStill from '../../../assets/images/placempus_jonas_bienz_website_still.jpg';
 import Banner from '../../../components/Banner';
+import useRootOverflow from '../../../hooks/useRootOverflow';
 
 
 const Placempus = () => {
@@ -19,11 +20,13 @@ const Placempus = () => {
     const videoUrl = 'https://www.dropbox.com/s/9hhz49ahduvv9a6/placempus_jonas_bienz_website.mp4?raw=1';
     const videoAlt = PlacempusStill;
 
+    const urlBar = useRootOverflow();
+
     return (
         <ProjectWrapper> 
             <Banner src={videoAlt}/>
             <section className='aside-box'></section>
-            <main>
+            <main style={{ overflowY: `${urlBar <= 5 && urlBar !== null ? 'scroll' : 'hidden'}`}}>
                 <div className='head-pusher'></div>
                 <StretchTitle 
                     title={projectTitle}

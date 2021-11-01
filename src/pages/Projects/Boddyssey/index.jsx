@@ -10,6 +10,7 @@ import { ProjectWrapper } from '../styled';
 
 import BoddysseyStill from '../../../assets/images/boddyssey_trailer_jonas_bienz_website_still.png';
 import Banner from '../../../components/Banner';
+import useRootOverflow from '../../../hooks/useRootOverflow';
 
 
 const Boddyssey = () => {
@@ -19,11 +20,15 @@ const Boddyssey = () => {
     const videoUrl = 'https://www.dropbox.com/s/anajg5qyvmhs9v8/boddyssey_trailer_jonas_bienz_website.mp4?raw=1';
     const videoAlt = BoddysseyStill;
 
+    const urlBar = useRootOverflow();
+
+   
+
     return (
         <ProjectWrapper>
             <Banner src={videoAlt}/>
             <section className='aside-box'></section>
-            <main>
+            <main style={{ overflowY: `${urlBar <= 5 && urlBar !== null ? 'scroll' : 'hidden'}`}}>
                 <div className='head-pusher'></div>
                 <StretchTitle 
                     title={projectTitle}

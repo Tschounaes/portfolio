@@ -18,13 +18,15 @@ const ProjectFooterPusher = ({ height }) => {
             } else return null;
         }
 
+        const mainElem = document.getElementsByTagName('main')[0];
         if (!aboutOpen) {
             measureTop();
-            window.addEventListener('wheel', measureTop);
-            window.addEventListener('touchend', measureTop);
-        }
+            mainElem.addEventListener('scroll', () => window.requestAnimationFrame(() => measureTop()));
+        } else mainElem.removeEventListener('scroll', () => window.requestAnimationFrame(() => measureTop()));
 
-        return () => window.removeEventListener('wheel', measureTop);
+        return () => {
+            mainElem.removeEventListener('scroll', () => window.requestAnimationFrame(() => measureTop()));
+        };
     },[ footerOpen, setFooterOpen, pushHeight, aboutOpen ]);
 
     return (

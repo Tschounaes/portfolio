@@ -40,7 +40,6 @@ export const PostsWrapper = styled.div`
             }
         }
         .blog_content {
-            z-index: 210;
             position: relative;
             top: 0px;
             left: 0px;
@@ -88,6 +87,7 @@ export const PostsWrapper = styled.div`
 
     //Style for posts in the main blog
     article.blog {
+        z-index: 210;
         margin: 30px 12px;
         padding: 0px;
         position: relative;
@@ -135,7 +135,8 @@ export const PostsWrapper = styled.div`
     }
 
     .blog-start {
-        height: 120px;
+        z-index: 202;
+        height: 33vh;
         width: 100%;
         transition: height 0.4s;
         .project-title {
@@ -146,13 +147,25 @@ export const PostsWrapper = styled.div`
     }
 
     .blog-end {
-        height: 270vh;
+        height: 50vh;
         width: 100%; 
     }
 
     @media screen and (max-width: 1450px) {
         .blog-start {
-            height: 40px;
+            height: 50vh;
+        }
+        @media screen and (max-height: 500px) {
+            .blog-start {
+                height: 90vh;
+            }
+        }
+
+        @media screen and (max-width: 512px) and (min-width: 482px){
+            .blog-start {
+                height: 420px;
+            }
         }
     }
+
 `

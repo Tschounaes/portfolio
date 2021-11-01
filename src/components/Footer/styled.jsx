@@ -95,5 +95,23 @@ export const FooterWrapper = styled.footer`
                 height: 62px;   
             }
         }
+        
+        @keyframes open {
+            from {
+                height: 0px;
+            }
+            to {
+                height: 160px;
+            }
+        }
+
+        @keyframes close {
+            from {
+                height: 160px;
+            }
+            to {
+                height: 0px;
+            }
+        }
     }
 `

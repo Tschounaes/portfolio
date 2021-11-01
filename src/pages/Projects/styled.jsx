@@ -17,7 +17,6 @@ export const ProjectWrapper = styled.div`
         position: relative;
         z-index: 220;
 
-        overflow-y: scroll;
         max-width: 1024px;
         height: 100vh;
         flex-shrink: 0;
