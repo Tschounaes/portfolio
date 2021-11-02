@@ -4,7 +4,6 @@ import {
   Route } from 'react-router-dom';
 
 import { useEffect } from 'react';
-//import useRootOverflow from './hooks/useRootOverflow';
 
 //Pages
 import Home from './pages/Home';
@@ -20,15 +19,10 @@ import AboutMeOverlay from './components/AboutMeOverlay';
 import Footer from './components/Footer';
 
 const App = () => {
-  //const overflow = useRootOverflow();
 
   useEffect(() => {
     document.getElementById('root').style.height = window.innerHeight + 'px';
-
-    const setViewportHeight = () => {
-      document.getElementById('root').style.height = '100vh';
-    }
-
+    const setViewportHeight = () => document.getElementById('root').style.height = '100vh';
     window.addEventListener('load', setViewportHeight);
     return () => window.removeEventListener('load', setViewportHeight)
   },[])

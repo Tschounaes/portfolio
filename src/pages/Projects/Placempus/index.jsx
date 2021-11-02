@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import StretchTitle from '../../../components/StretchTitle';
 import TschounaesPlayer from '../../../components/TschounaesPlayer';
@@ -21,12 +21,23 @@ const Placempus = () => {
     const videoAlt = PlacempusStill;
 
     const urlBar = useRootOverflow();
+    const [ scrolled, setScrolled ] = useState(false);
+
+    const handleScrolled = (e) => {
+        if (e.target.scrollTop > 0) {
+            setScrolled(true)
+        } else {
+            setScrolled(false)
+        }
+    }
 
     return (
         <ProjectWrapper> 
             <Banner src={videoAlt}/>
             <section className='aside-box'></section>
-            <main style={{ overflowY: `${urlBar <= 5 && urlBar !== null ? 'scroll' : 'hidden'}`}}>
+            <main 
+                onScroll={handleScrolled}
+                style={{ overflowY: `${urlBar <= 5 && urlBar !== null ? 'scroll' : !scrolled ? 'hidden' : 'scroll'}`}}>
                 <div className='head-pusher'></div>
                 <StretchTitle 
                     title={projectTitle}

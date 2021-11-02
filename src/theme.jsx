@@ -60,6 +60,7 @@ export const DefaultTheme = {
 
 export const GlobalStyle = createGlobalStyle`
     * {
+        -webkit-overflow-scrolling: touch;
         -webkit-tap-highlight-color: transparent;
         ::-webkit-scrollbar {
             background-color: transparent;
@@ -91,6 +92,7 @@ export const GlobalStyle = createGlobalStyle`
     }
     
     body {
+        overflow: hidden;
         margin: 0px;
         padding: 0px;
         background-color: ${props => props.theme.colorDark};
