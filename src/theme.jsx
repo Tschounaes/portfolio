@@ -60,7 +60,6 @@ export const DefaultTheme = {
 
 export const GlobalStyle = createGlobalStyle`
     * {
-        -webkit-overflow-scrolling: touch;
         -webkit-tap-highlight-color: transparent;
         ::-webkit-scrollbar {
             background-color: transparent;
@@ -98,6 +97,10 @@ export const GlobalStyle = createGlobalStyle`
         background-color: ${props => props.theme.colorDark};
         font-family: OpenSans, Roboto, sans-serif;
         color: ${props => props.theme.colorBright};
+
+        main {
+            -webkit-overflow-scrolling: touch;
+        }
 
         svg {
             fill: rgba(0,0,0,1);

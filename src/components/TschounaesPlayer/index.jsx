@@ -94,7 +94,9 @@ const TschounaesPlayer = (props) => {
 
     const handleTime = (e) => {
         setVidtime(e.target.currentTime.toFixed(2));
-        setBuffertime(video.current.buffered.end(0)); 
+        if (e.target.readyState > 2) {
+            setBuffertime(video.current.buffered.end(0)); 
+        }
     };
 
     const handleVisible = () => {
@@ -136,6 +138,12 @@ const TschounaesPlayer = (props) => {
             setVisible(true);
         }
     },[playing]);
+
+    useEffect(() => {
+        console.log(video.current.readyState);
+        video.current.load();
+        
+    },[])
 
     return (
         <TschounaesPlayerWrapper 
