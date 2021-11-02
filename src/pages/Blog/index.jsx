@@ -27,6 +27,16 @@ const Blog = () => {
 
     const urlBar = useRootOverflow();
 
+    const [ scrolled, setScrolled ] = useState(false);
+
+    const handleScrolled = (e) => {
+        if (e.target.scrollTop > 0) {
+            setScrolled(true)
+        } else {
+            setScrolled(false)
+        }
+    }
+
     // --> Hides the blog-posts if they are less than 50% on the screen <--
     const handlePostHiding = () => {
         const windowHeight = window.innerHeight;
@@ -131,9 +141,12 @@ const Blog = () => {
 
     return (
         <BlogWrapper
-            style={{ overflowY: `${urlBar <= 5 && urlBar !== null ? 'scroll' : 'hidden'}`}}
+            style={{ overflowY: `${urlBar <= 5 && urlBar !== null ? 'scroll' : !scrolled ? 'hidden' : 'scroll'}`}}
             onLoad={handleTitleWidth}
-            onScroll={handleBlogScroll}
+            onScroll={(e) => {
+                handleBlogScroll(e);
+                handleScrolled(e);
+            }}
             ref={wrapperRef}>
             <section 
                 className='blog-title-container'

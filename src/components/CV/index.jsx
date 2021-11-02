@@ -42,6 +42,16 @@ const CV = (props) => {
 
     const urlBar = useRootOverflow();
 
+    const [ scrolled, setScrolled ] = useState(false);
+
+    const handleScrolled = (e) => {
+        if (e.target.scrollTop > 0) {
+            setScrolled(true)
+        } else {
+            setScrolled(false)
+        }
+    }
+
     const handleScroll = () => {
         setScrollTop(container.current.scrollTop);
         calcFooter();
@@ -134,9 +144,11 @@ const CV = (props) => {
     return (
         <CVWrapper 
             ref={container}
-            onScroll={handleScroll}
+            onScroll={(e) => {
+                handleScroll(e)
+                handleScrolled(e) }}
             onTransitionEnd={getRefs}
-            style={{ overflowY: `${urlBar <= 5 && urlBar !== null ? 'scroll' : 'hidden'}`}}
+            style={{ overflowY: `${urlBar <= 5 && urlBar !== null ? 'scroll' : !scrolled ? 'hidden' : 'scroll'}`}}
             /* attributes from refs */
             open={props.open} 
             switch={scrollTop >= 5 }
