@@ -132,6 +132,12 @@ const SearchInputWrapper = styled.div`
             }
         }
     }
+
+    @media screen {
+        @supports not (aspect-ratio: 1 / 1) {
+            width: 24px;
+        }
+    }
 `
 
 export default SearchInputWrapper;

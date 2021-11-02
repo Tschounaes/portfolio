@@ -110,7 +110,7 @@ export const CVWrapper = styled.div`
             -ms-transform: var(--transforms-here);
 
 
-            translate: ${props => props.switch ? '-27px' : 'px'} 0px;
+            translate: ${props => props.switch ? '-27px' : '0px'} 0px;
             rotate: ${props => props.switch ? '90deg' : '0deg'};
             scale: ${props => props.switch ? 0.6 : 1.0};
 
@@ -223,7 +223,23 @@ export const CVWrapper = styled.div`
                 justify-content: center;
                 img {
                     margin-top: 30px;
+
                     transform: translateX(0%) translateY(15%);
+                    -webkit-transform: translateX(0%) translateY(15%);
+                    -moz-transform: translateX(0%) translateY(15%);
+                    -o-transform: translateX(0%) translateY(15%);
+                    -ms-transform: translateX(0%) translateY(15%);
+
+                    translate: 0% 15%;
+
+                    @media screen {
+                        @supports (-moz-transform: translateX(0%) translateY(15%)) {
+                            translate: none;
+                            rotate: none;
+                            scale: none;
+                        }
+                    }
+
                     width: 100%;
                 }
                 #welcome-text {
