@@ -115,7 +115,10 @@ const CV = (props) => {
 
     useEffect(() => calcFooter(),[aboutOpen, calcFooter]);
 
-    useEffect(() => getRefs(),[]);
+    useEffect(() => {
+        getRefs();
+        setScrollTop(container.current.scrollTop)
+    },[]);
 
     useEffect(() => {
         const handleSafariBackdropBug = () => {   
