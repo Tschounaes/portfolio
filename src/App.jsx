@@ -3,8 +3,6 @@ import {
   Switch,
   Route } from 'react-router-dom';
 
-import { useEffect } from 'react';
-
 //Pages
 import Home from './pages/Home';
 import SparkOfGenius from './pages/Projects/SparkOfGenius';
@@ -20,13 +18,6 @@ import Footer from './components/Footer';
 
 const App = () => {
 
-  useEffect(() => {
-    document.getElementById('root').style.height = window.innerHeight + 'px';
-    const setViewportHeight = () => document.getElementById('root').style.height = '100vh';
-    window.addEventListener('load', setViewportHeight);
-    return () => window.removeEventListener('load', setViewportHeight)
-  },[])
- 
   return (
     <Router>
       <Navigation /> 

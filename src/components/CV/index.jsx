@@ -6,8 +6,6 @@ import React, {
 
 import useZustand from '../../store_zustand';
 
-import useRootOverflow from '../../hooks/useRootOverflow';
-
 import { csv } from 'd3-fetch';
 
 import CVtable from '../../assets/tabels/cv.csv';
@@ -39,18 +37,6 @@ const CV = (props) => {
 
     // footer handling
     const { footerOpen, setFooterOpen, aboutOpen } = useZustand();
-
-    const urlBar = useRootOverflow();
-
-    const [ scrolled, setScrolled ] = useState(false);
-
-    const handleScrolled = (e) => {
-        if (e.target.scrollTop > 0) {
-            setScrolled(true)
-        } else {
-            setScrolled(false)
-        }
-    }
 
     const handleScroll = () => {
         setScrollTop(container.current.scrollTop);
@@ -144,11 +130,9 @@ const CV = (props) => {
     return (
         <CVWrapper 
             ref={container}
-            onScroll={(e) => {
-                handleScroll(e)
-                handleScrolled(e) }}
+            onScroll={(e) => handleScroll(e)}
             onTransitionEnd={getRefs}
-            style={{ overflowY: `${urlBar <= 5 && urlBar !== null ? 'scroll' : !scrolled ? 'hidden' : 'scroll'}`}}
+            
             /* attributes from refs */
             open={props.open} 
             switch={scrollTop >= 5 }

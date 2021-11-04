@@ -10,8 +10,6 @@ import SearchInput from '../../components/SearchInput';
 import { BlogWrapper } from './styled';
 
 import useZustand from '../../store_zustand';
-import useRootOverflow from '../../hooks/useRootOverflow';
-
 
 
 const Blog = () => {
@@ -24,18 +22,6 @@ const Blog = () => {
         window.innerWidth > 1024 ? [0,1,2] :
         window.innerWidth > 512 ? [0,1] :
         [0]);
-
-    const urlBar = useRootOverflow();
-
-    const [ scrolled, setScrolled ] = useState(false);
-
-    const handleScrolled = (e) => {
-        if (e.target.scrollTop > 0) {
-            setScrolled(true)
-        } else {
-            setScrolled(false)
-        }
-    }
 
     // --> Hides the blog-posts if they are less than 50% on the screen <--
     const handlePostHiding = () => {
@@ -141,12 +127,8 @@ const Blog = () => {
 
     return (
         <BlogWrapper
-            style={{ overflowY: `${urlBar <= 5 && urlBar !== null ? 'scroll' : !scrolled ? 'hidden' : 'scroll'}`}}
             onLoad={handleTitleWidth}
-            onScroll={(e) => {
-                handleBlogScroll(e);
-                handleScrolled(e);
-            }}
+            onScroll={(e) => handleBlogScroll(e)}
             ref={wrapperRef}>
             <section 
                 className='blog-title-container'

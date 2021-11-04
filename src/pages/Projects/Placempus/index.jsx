@@ -10,7 +10,6 @@ import { ProjectWrapper } from '../styled';
 
 import PlacempusStill from '../../../assets/images/placempus_jonas_bienz_website_still.jpg';
 import Banner from '../../../components/Banner';
-import useRootOverflow from '../../../hooks/useRootOverflow';
 
 
 const Placempus = () => {
@@ -20,24 +19,11 @@ const Placempus = () => {
     const videoUrl = 'https://www.dropbox.com/s/9hhz49ahduvv9a6/placempus_jonas_bienz_website.mp4?raw=1';
     const videoAlt = PlacempusStill;
 
-    const urlBar = useRootOverflow();
-    const [ scrolled, setScrolled ] = useState(false);
-
-    const handleScrolled = (e) => {
-        if (e.target.scrollTop > 0) {
-            setScrolled(true)
-        } else {
-            setScrolled(false)
-        }
-    }
-
     return (
         <ProjectWrapper> 
             <Banner src={videoAlt}/>
             <section className='aside-box'></section>
-            <main 
-                onScroll={handleScrolled}
-                style={{ overflowY: `${urlBar <= 5 && urlBar !== null ? 'scroll' : !scrolled ? 'hidden' : 'scroll'}`}}>
+            <main>
                 <div className='head-pusher'></div>
                 <StretchTitle 
                     title={projectTitle}
