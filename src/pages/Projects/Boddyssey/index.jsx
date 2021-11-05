@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import StretchTitle from '../../../components/StretchTitle';
 import TschounaesPlayer from '../../../components/TschounaesPlayer';
@@ -37,7 +37,7 @@ const Boddyssey = () => {
                      <h2>Blog</h2>
                      <Posts wrapper='project' projectId={projectId}/>            
                 </section>
-                <ProjectFooterPusher/> 
+                <ProjectFooterPusher /> 
             </main>
             
         </ProjectWrapper>

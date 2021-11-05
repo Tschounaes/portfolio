@@ -91,7 +91,7 @@ export const PostsWrapper = styled.div`
         margin: 30px 12px;
         padding: 0px;
         position: relative;
-        transition: opacity 0.8s, transform 0.8s, background-color 0.4s;
+        transition: opacity 0.8s, transform 0.8s, scale 0.8s, background-color 0.4s;
         overflow: hidden;
 
         background-color: ${props => props.theme.colorMedium66};

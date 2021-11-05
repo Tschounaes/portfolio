@@ -4,6 +4,7 @@ export const ProjectWrapper = styled.div`
     display: flex;
     justify-content: left;
     width: 100%;
+    height: max-content;
 
     .head-pusher {
         height: 0px;
@@ -14,11 +15,15 @@ export const ProjectWrapper = styled.div`
     }
 
     main {
+        // Overflow must be set scroll, while translate is on (big screens) --> it will stop
+        // the url bar hiding on big tablets tho
+        overflow: visible;
         position: relative;
+        -webkit-overflow-scrolling: touch;
         z-index: 220;
 
         max-width: 1024px;
-        height: 100vh;
+        height: 102vh;
         flex-shrink: 0;
         margin-right: 120px;
         transition: transform 0.4s;
@@ -72,6 +77,7 @@ export const ProjectWrapper = styled.div`
     @media screen and (min-width: calc(1024px + 120px)) {
         main {
             transform: rotate(2.5deg) translateY(-20px);
+            overflow: scroll;
             height: calc(100vh + 40px);
         }
         .head-pusher {

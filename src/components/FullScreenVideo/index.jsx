@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import useZustand from '../../store_zustand';
 import useResize from '../../hooks/useResize';
 import fillDisplay from '../../helpers/fillDisplay';
@@ -9,6 +9,7 @@ import Slideshow from '../Slideshow';
 
 const FullScreenVideo = () => {
     const innerSize = useResize();
+    const video = useRef()
     const { aboutOpen, setAboutOpen } = useZustand();
     const { setCloseAboutMe } = useZustand();
     const [ loaded, setLoaded ] = useState(false);
@@ -29,6 +30,8 @@ const FullScreenVideo = () => {
 
     useEffect(() => {
         getSlideshow()
+        video.current.play()
+        window.scroll(0, window.innerHeight)
     },[])
 
     return (
@@ -46,6 +49,7 @@ const FullScreenVideo = () => {
                 speed={3250}/>
             }
              <video
+                ref={video}
                 onPlay={videoLoading}
                 height={fillDisplay(innerSize, 1920/1080).height}
                 type='video/mp4'

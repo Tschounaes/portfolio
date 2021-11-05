@@ -86,12 +86,16 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     #root {
-        overflow: hidden;
+        width: 100vw;
+        height: 100vh;
+        margin: 0px;
+        padding: 0px;
+        overflow-y: visible;
         background-color: ${props => props.theme.colorDark};
     }
     
     body {
-        overflow: hidden;
+        overflow-x: hidden;
         margin: 0px;
         padding: 0px;
         background-color: ${props => props.theme.colorDark};
@@ -135,9 +139,5 @@ export const GlobalStyle = createGlobalStyle`
         }
     }
 
-    #root {
-        width: 100vw;
-        height: 100vh;
-        overflow: hidden;
-    }   
+  
 `;

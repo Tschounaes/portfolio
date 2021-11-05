@@ -5,8 +5,8 @@ export const BlogWrapper = styled.main`
     margin: auto;
     width: 100%;
     max-width: 1200px;
-    height: 100vh;
-    overflow-Y: scroll;
+    height: 102vh;
+    overflow-Y: visible;
 
     .blog-title-container {
         position: fixed;

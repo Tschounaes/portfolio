@@ -1,7 +1,11 @@
 import styled from "styled-components";
 
 const HomeWrapper = styled.main`
+    position: flex;
+    align-items: center;
+    justify-content: center;
     overflow: hidden;
+    height: 102vh;
 
     .appear {
         animation-name: appear;

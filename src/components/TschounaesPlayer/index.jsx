@@ -140,9 +140,7 @@ const TschounaesPlayer = (props) => {
     },[playing]);
 
     useEffect(() => {
-        console.log(video.current.readyState);
-        video.current.load();
-        
+        video.current.load();   
     },[])
 
     return (

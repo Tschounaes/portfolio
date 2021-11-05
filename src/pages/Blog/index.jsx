@@ -16,7 +16,7 @@ const Blog = () => {
     const wrapperRef = useRef();
     const titleRef = useRef();
 
-    const { searchInputs, aboutOpen, footerOpen, setFooterOpen } = useZustand();
+    const { searchInputs, aboutOpen, setFooterOpen } = useZustand();
 
     const [columns, setColumns] = useState(
         window.innerWidth > 1024 ? [0,1,2] :
@@ -30,7 +30,9 @@ const Blog = () => {
         const rect = entry.getBoundingClientRect()
         const ceY = rect.top + rect.height * 0.5;
         entry.style.opacity = ceY < 0 || ceY > windowHeight ? '0' : '1';
-        entry.style.transform = ceY < 0 || ceY > windowHeight ? 'scale(20%)' : 'scale(100%)';
+        entry.style.transform = ceY < 0 || ceY > windowHeight ? 'scale(50%)' : 'scale(100%)';
+        entry.style.scale = ceY < 0 || ceY > windowHeight ? '0.5' : '1';
+
             if (entry.lastChild.firstChild.tagName === 'VIDEO') {
                 entry.lastChild.firstChild.preload = ceY < 0 || ceY > windowHeight ? 'none' : 'metadata';
             }
@@ -43,7 +45,7 @@ const Blog = () => {
         const blogContainer = wrapperRef.current;
         const blogTitle = titleRef.current;
         const space = blogContainer.getBoundingClientRect().width;
-        // console.log('space: ' + space + ' cols: ' + columns.length);
+
         if (columns.length === 3) {
             blogTitle.style.width = `${space / 3}px`;
         } else if (columns.length === 2) {
@@ -55,30 +57,38 @@ const Blog = () => {
 
     // --> Hide the search/title-section when user looks at posts <--
     const handleSearchHiding = () => {
-        const blogTitle = titleRef.current;
-        const blogStartElem = document.getElementsByClassName('blog-start')[0];
-        if (blogStartElem.getBoundingClientRect().top <= -200) {
-            blogTitle.style.opacity = '0';   
-        } else {
-            blogTitle.style.opacity = '1';
-        }
-        if (blogStartElem.getBoundingClientRect().bottom <= blogTitle.getBoundingClientRect().bottom - 30) {
-            blogTitle.style['z-index'] = '100';
-        } else {
-            blogTitle.style['z-index'] = '205';
-        }         
+        try {
+            const blogTitle = titleRef.current;
+            const blogStartElem = document.getElementsByClassName('blog-start')[0];
+            if (blogStartElem.getBoundingClientRect().top <= -200) {
+                blogTitle.style.opacity = '0';   
+            } else {
+                blogTitle.style.opacity = '1';
+            }
+            if (blogStartElem.getBoundingClientRect().bottom <= blogTitle.getBoundingClientRect().bottom - 30) {
+                blogTitle.style['z-index'] = '100';
+            } else {
+                blogTitle.style['z-index'] = '205';
+            }  
+        } catch {
+            return null;
+        }   
     }
 
     const handleFooter = () => {
-        if (!aboutOpen) {
-            const blogEndElem = document.getElementsByClassName('blog-end')[0];
-            if (blogEndElem.getBoundingClientRect().bottom <= window.innerHeight + 5) {
-                return !footerOpen ? setFooterOpen(true) : null;
+        try {
+            if (!aboutOpen) {
+                const blogEndElem = document.getElementsByClassName('blog-end')[0];
+                if (blogEndElem.getBoundingClientRect().bottom <= window.innerHeight + 5) {
+                    return setFooterOpen(true);
+                } else {
+                    return setFooterOpen(false);
+                }
             } else {
-                return footerOpen ? setFooterOpen(false) : null;
+                return setFooterOpen(false);
             }
-        } else {
-            return footerOpen ? setFooterOpen(false) : null;
+        } catch {
+            return null;
         }
     }
 
@@ -121,14 +131,19 @@ const Blog = () => {
         return () => window.removeEventListener('resize', resizeListener);
     }, []);
 
-    useEffect(() => handleTitleWidth(), [ columns ]);
-    useEffect(() => handleFooter(), [ aboutOpen ]);
+    // --> handle scroll <--
+    useEffect(() => {
+        window.addEventListener('scroll', (e) => handleBlogScroll(e))
+        return () => window.removeEventListener('scroll', (e) => handleBlogScroll(e))
+    },[]) // eslint-disable-line react-hooks/exhaustive-deps
+
+    useEffect(() => handleTitleWidth(), [ columns ]); // eslint-disable-line react-hooks/exhaustive-deps
+    useEffect(() => handleFooter(), [ aboutOpen ]); // eslint-disable-line react-hooks/exhaustive-deps
 
 
     return (
         <BlogWrapper
-            onLoad={handleTitleWidth}
-            onScroll={(e) => handleBlogScroll(e)}
+            onLoad={handleBlogScroll }
             ref={wrapperRef}>
             <section 
                 className='blog-title-container'

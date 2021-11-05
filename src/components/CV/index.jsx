@@ -86,11 +86,11 @@ const CV = (props) => {
 
     const calcFooter = useCallback(() => {
         if (aboutOpen) {
-            const bottom = container.current.lastChild.getBoundingClientRect().bottom - window.innerHeight;
-            if (bottom <= 10 && bottom > -10) {
-                if (!footerOpen) {setFooterOpen(true)} else return null;
-            } else if (bottom > 10) {
-                if (footerOpen) {setFooterOpen(false)} else return null;
+            const bottom = container.current.scrollTop - (container.current.scrollHeight - container.current.clientHeight);
+            if (bottom >= -10) {
+               setFooterOpen(true);
+            } else if (bottom < -10) {
+                setFooterOpen(false);
             } else return null;  
         } else return null;      
     },[footerOpen, setFooterOpen, aboutOpen]);
@@ -120,9 +120,7 @@ const CV = (props) => {
         const handleSafariBackdropBug = () => {   
             // fix safari backdrop-filter bug
             pseudo.current.style.webkitBackdropFilter = 'none';
-            setTimeout(() => {
-                pseudo.current.style.webkitBackdropFilter = 'invert(100%)';
-            }, 1)
+            window.requestAnimationFrame(() => pseudo.current.style.webkitBackdropFilter = 'invert(100%)');   
         }
         return aboutOpen && scrollTop <= 5 ? handleSafariBackdropBug() : null;
     })

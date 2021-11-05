@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import StretchTitle from '../../../components/StretchTitle';
 import TschounaesPlayer from '../../../components/TschounaesPlayer';
 import ProjectInfo from '../../../components/ProjectInfo';
