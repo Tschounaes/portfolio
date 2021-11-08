@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{ useEffect } from 'react';
 import useZustand from '../../store_zustand';
 
 import { NavContainer } from './styled';
@@ -22,7 +22,15 @@ const navContent = [
 
 
 const Navigation = () => {
-    const { setNavOpen } = useZustand()
+    const { setNavOpen, setSelect} = useZustand();
+
+    const handleSelect = () => {
+        navContent.forEach((entry, index) => {
+            if ('#' + entry[1] === window.location.hash) {
+                setSelect(index)
+            }
+        })
+    }
 
     const handleExpand = (e) => {
         switch (e.type) {
@@ -37,19 +45,21 @@ const Navigation = () => {
         }
     }
 
+    useEffect(() => handleSelect(),[])
+
     return (
         <NavContainer onMouseEnter={handleExpand} onMouseLeave={handleExpand}>
             <nav>
                 { navContent.map((linkSet,index) => {
-                        return(
-                            <IconButton
-                                name={linkSet[0]}
-                                link={linkSet[1]}
-                                icon={linkSet[2]}
-                                width={linkSet[3]}
-                                key={'nav-'+index} 
-                                navIndex={index}
-                            />)
+                    return(
+                        <IconButton
+                            name={linkSet[0]}
+                            link={linkSet[1]}
+                            icon={linkSet[2]}
+                            width={linkSet[3]}
+                            key={'nav-'+index} 
+                            navIndex={index}
+                        />)
                     })
                 }
             </nav>

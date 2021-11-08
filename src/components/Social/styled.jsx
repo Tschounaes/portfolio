@@ -7,6 +7,7 @@ export const SocialContainer = styled.div`
     right: 3em;
     display: flex;
     justify-content: flex-end;
+    transition: right 0.4s, bottom 0.4s;
 
     @media screen and (max-height: 320px) {
         left: 3em;
@@ -19,6 +20,17 @@ export const SocialContainer = styled.div`
             bottom: ${props => props.footer ? 'calc(2em + 160px)' : '2em'};
         }
     }
+
+    @media screen and (max-width: 512px) {    
+        bottom: ${props => props.footer ? 'calc(1em + 220px)' : '1em'};
+        right: 1.5em;
+
+        @media screen and (max-height: 420px) {
+            bottom: ${props => props.footer ? 'calc(1em + 160px)' : '1em'};
+        }
+
+
+    }   
 
     
 

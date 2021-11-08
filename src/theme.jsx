@@ -49,8 +49,7 @@ export const DefaultTheme = {
     colorComplementDark: 'rgba(119, 46, 37, 1)',
     colorTransparent: 'rgba(0, 0, 0, 0)',
 
-
-    //sizes
+    // sizes
     XS: '10px',
     S: '12px',
     M: '16px',

@@ -29,7 +29,7 @@ export const FooterWrapper = styled.footer`
 
         svg:first-child {
             height: 100px;
-            width: min-content;
+            width: 100px;
         }
 
         svg:last-child {
@@ -92,7 +92,8 @@ export const FooterWrapper = styled.footer`
         }
         .brand {
             svg:first-child {
-                height: 62px;   
+                height: 62px;
+                width: 62px;  
             }
         }
         

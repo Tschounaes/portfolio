@@ -11,6 +11,7 @@ export const NavContainer = styled.div`
     height: 28vh;
     justify-content: flex-end;
     z-index: 300;
+    
 
 
     nav {
@@ -20,5 +21,14 @@ export const NavContainer = styled.div`
         flex-direction: column;
         align-items: flex-end;
         justify-content: space-between;
+
+        transition: margin-top 0.4s, margin-right 0.4s;
     }
+
+    @media screen and (max-width: 512px) {
+        nav {
+            margin-top: 1em;
+            margin-right: 1.5em;
+        }
+    }   
 `

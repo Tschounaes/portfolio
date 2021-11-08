@@ -16,20 +16,17 @@ const BannerWrapper = styled.div`
         -o-transform: rotate(-7.5deg) scale(120%) translateY(-80px);
         -ms-transform: rotate(-7.5deg) scale(120%) translateY(-80px);
 
-        translate: 0px 80px;
+        translate: 0px -80px;
         rotate: -7.5deg;
         scale: 1.2;
 
         @media screen {
                 @supports (-moz-transform: rotate(-7.5deg) scale(120%) translateY(-80px)) {
-                    translate: none;
                     rotate: none;
                     scale: none;
                 }
             }
 
-
-        
         height: 50vh;
         overflow: hidden;
         display: flex;
@@ -38,9 +35,8 @@ const BannerWrapper = styled.div`
     }
 
     img {
-        transform: rotate(7.5deg);
         width: 100vw;
-        min-width: 1024px;
+        transform: rotate(7.5deg);
         aspect-ratio: 16 / 9;
         filter: brightness(180%);
         -webkit-filter: brightness(180%);
@@ -50,11 +46,21 @@ const BannerWrapper = styled.div`
     @media screen and (max-width: 1024px) {
         * {
             transform: none !important;
+            translate: none !important;
+            rotate: none !important;
+            scale: none !important;
         }
 
         div {
             height: 100vh;
         }
+
+        img {
+            height: 100vh;
+            width: auto; 
+        }
+
+
         @media (max-aspect-ratio: 16 / 9) {
             img {
                 height: 100vh;

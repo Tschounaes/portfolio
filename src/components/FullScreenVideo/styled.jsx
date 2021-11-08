@@ -3,6 +3,9 @@ import styled from "styled-components";
 export const FullScreenVideoWrapper = styled.div`
     position: relative;
     z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     
     overflow: visible;
     width: 100vw;
@@ -13,7 +16,6 @@ export const FullScreenVideoWrapper = styled.div`
 
     * {
         position: fixed;
-        left: 0px;
         top: 0px;
         transform: scale(105%)
     }

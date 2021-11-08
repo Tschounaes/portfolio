@@ -1,5 +1,5 @@
-
 import React, { useRef, useState, useEffect } from 'react';
+import fscreen from 'fscreen';
 
 //components
 import DevMessage from '../DevMessage';
@@ -50,11 +50,19 @@ const TschounaesPlayer = (props) => {
     };
 
     const handleFullscreen = () => {  
-        if(document.fullscreenElement == null) {
-            container.current.requestFullscreen( { navigationUI: 'hide' } );
+        if(document.fullscreenElement || fscreen.fullscreenElement === null) {
+            try {
+                container.current.requestFullscreen( { navigationUI: 'hide' } );
+            } catch {
+                fscreen.requestFullscreen(container.current);
+            }
             setFullscreen(true);
         } else {
-            document.exitFullscreen();
+            try {
+                document.exitFullscreen();
+            } catch {
+                fscreen.exitFullscreen();
+            }
             setFullscreen(false);
         }
     };

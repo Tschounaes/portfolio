@@ -151,6 +151,14 @@ export const AboutMeOverlayWrapper = styled.div`
         }
     }
 
+    @media screen and (max-width: 512px) {
+        top: ${props => !props.open ? '0.6em' : '0em'}; 
+        left: ${props => !props.open ? '0.9em' : '0em'};
+
+    }
+
+
+
     :hover {
         background-color: ${props => !props.open ? props.theme.colorComplement : props.theme.colorMedium};
         #logo-container {
@@ -160,9 +168,7 @@ export const AboutMeOverlayWrapper = styled.div`
             }
         }
 
-        .cv-footer {
-            //background-color: ${props => !props.open ? props.theme.colorTransparent : props.theme.colorDark};
-        }
+
         
         #about-me-title {
             height: ${props => !props.open ? '12px' : '0px'};

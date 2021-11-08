@@ -8,7 +8,7 @@ import ProjectFooterPusher from '../../../components/Footer/ProjectFooterPusher'
 import { ProjectWrapper } from '../styled';
 import Banner from '../../../components/Banner';
 
-import SparkStill from '../../../assets/images/sparkofgenius_jonas_bienz_website_still.png';
+import SparkStill from '../../../assets/images/sparkofgenius_jonas_bienz_website_still.jpg';
 
 const SparkOfGenius = () => {
      // Project constants that are needed inside of the component

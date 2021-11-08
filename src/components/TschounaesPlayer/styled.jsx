@@ -43,7 +43,7 @@ export const TschounaesPlayerWrapper = styled.div`
             justify-content: center;
             align-items: center;
             svg {
-                padding: 25px;
+                padding: 15px;
                 overflow: visible;
                 border-radius: 50%;
                 border: solid 2px ${props => props.theme.colorComplement};

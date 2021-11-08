@@ -19,7 +19,7 @@ export const IconButtonWrapper = styled.button`
     padding: 0.6em;
     position: absolute;
     transform: translateY(${props => props.open ? 3 * props.navIndex : 0}em);
-    transition: transform 0.6s ${props => ((4 - props.navIndex) / 8.0) }s, background-color 0.8s;
+    transition: transform 0.6s ${props => ((5 - props.navIndex) / 8.0) }s, background-color 0.8s;
     
 
     p {

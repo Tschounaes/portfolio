@@ -4,7 +4,7 @@ import CreditWrapper from './styled';
 const Credit = ({ link, name, role }) => {
 
     const handleClick = () => {
-        window.open(link, '_blank').focus();
+        return link !== '' ? window.open(link, '_blank').focus() : null;
     }
 
     return ( 

@@ -8,7 +8,7 @@ import ProjectFooterPusher from '../../../components/Footer/ProjectFooterPusher'
 
 import { ProjectWrapper } from '../styled';
 
-import BoddysseyStill from '../../../assets/images/boddyssey_trailer_jonas_bienz_website_still.png';
+import BoddysseyStill from '../../../assets/images/boddyssey_trailer_jonas_bienz_website_still.jpg';
 import Banner from '../../../components/Banner';
 
 

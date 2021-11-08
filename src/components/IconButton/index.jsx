@@ -3,9 +3,9 @@ import useZustand from '../../store_zustand';
 import { IconButtonWrapper } from './styled';
 
 const IconButton = (props) => {
-    const { select, setSelect } = useZustand()
-    const { navOpen, setNavOpen } = useZustand()
-    const { aboutOpen, setAboutOpen } = useZustand()
+    const { select, setSelect } = useZustand();
+    const { navOpen, setNavOpen } = useZustand();
+    const { aboutOpen, setAboutOpen } = useZustand();
 
     const history = useHistory();
 

@@ -7,7 +7,6 @@ import CrossIcon from '../../assets/svg/cross_icon.svg';
 import CV from '../CV';
 
 
-
 const AboutMeOverlay = () => {
     const { closeAboutMe, aboutOpen, setAboutOpen } = useZustand();
 
