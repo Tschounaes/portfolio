@@ -22,6 +22,7 @@ const BannerWrapper = styled.div`
 
         @media screen {
                 @supports (-moz-transform: rotate(-7.5deg) scale(120%) translateY(-80px)) {
+                    translate: none;
                     rotate: none;
                     scale: none;
                 }
@@ -56,7 +57,8 @@ const BannerWrapper = styled.div`
         }
 
         img {
-            height: 100vh;
+            min-height: 100vh;
+            min-width: 100vw;
             width: auto; 
         }
 

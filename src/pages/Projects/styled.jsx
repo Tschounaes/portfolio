@@ -76,6 +76,7 @@ export const ProjectWrapper = styled.div`
 
     @media screen and (min-width: calc(1024px + 120px)) {
         main {
+            height: 100vh;
             transform: rotate(2.5deg) translateY(-20px);
             overflow: scroll;
             height: calc(100vh + 40px);

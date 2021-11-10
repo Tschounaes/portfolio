@@ -207,7 +207,7 @@ export const TschounaesPlayerWrapper = styled.div`
     :fullscreen {
         animation: tofullscreen 0.8s;
         video {
-            width: 100%;
+            width: 100vw;
         }
     }
 

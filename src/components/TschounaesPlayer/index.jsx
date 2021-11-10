@@ -24,6 +24,7 @@ const TschounaesPlayer = (props) => {
     const video  = useRef();
     const container = useRef();
     const playbar = useRef();
+
     const [ playing, setPlaying ] = useState(false);
     const [ fullscreen, setFullscreen ] = useState(false);
     const [ mute, setMute ] = useState(false);
@@ -50,19 +51,11 @@ const TschounaesPlayer = (props) => {
     };
 
     const handleFullscreen = () => {  
-        if(document.fullscreenElement || fscreen.fullscreenElement === null) {
-            try {
-                container.current.requestFullscreen( { navigationUI: 'hide' } );
-            } catch {
-                fscreen.requestFullscreen(container.current);
-            }
+        if (fscreen.fullscreenElement === null) {
+            fscreen.requestFullscreen(container.current);
             setFullscreen(true);
         } else {
-            try {
-                document.exitFullscreen();
-            } catch {
-                fscreen.exitFullscreen();
-            }
+            fscreen.exitFullscreen();
             setFullscreen(false);
         }
     };
